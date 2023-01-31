@@ -1,0 +1,52 @@
+﻿<Page Loaded="Page_Loaded"
+    Width="1920"
+    Height="1080"
+    x:Class="SpaceInvaders.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpaceInvaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="71*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/spacedust1.jpg"></ImageBrush>
+        </Grid.Background>
+        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="username:"  FontSize="40" Margin="430,431,-430,0" Grid.ColumnSpan="2"/>
+        <TextBox   Width="455" Height="66" Name="username" FontSize="40" Background="#66ADA0A0" TextChanged="username_TextChanged" Grid.ColumnSpan="2" Margin="733,431,732,583"/>
+        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="password:" FontSize="40" Margin="430,540,-430,0" Grid.ColumnSpan="2"/>
+        <PasswordBox    Width="455" Height="66" Name="password" FontSize="40" Background="#66ADA0A0" Margin="733,529,732,485" PasswordChanged="password_PasswordChanged"  Grid.ColumnSpan="2"/>
+
+        <Button x:Name="loginbtn"
+                PointerEntered="TextBlock_PointerEntered"
+                PointerExited="TextBlock_PointerExited"
+                IsEnabled="False"
+                VerticalContentAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                Content="Login" 
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="40" 
+                VerticalAlignment="Top"
+                Margin="46,701,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="playBtn_Click" Grid.Column="1"/>
+        <Button x:Name="Quitbtn" 
+                Content="quit" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Margin="0,10,10,0"
+                Grid.Row="0"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="Quitbtn_Click" Grid.Column="1" 
+                />
+        <TextBlock PointerExited="TextBlock_PointerExited" PointerEntered="TextBlock_PointerEntered" Tapped="TextBlock_Tapped" Foreground="Yellow" FontSize="40" Text="Don't have a user? click here to create one" Margin="586,643,573,366" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="logerr" Foreground="Red" FontSize="30" Visibility="Collapsed" Text="Username or password are not currect" Margin="628,603,531,406" Grid.ColumnSpan="2"/>
+    </Grid>
+</Page>

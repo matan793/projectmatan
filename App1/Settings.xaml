@@ -1,0 +1,394 @@
+﻿<Page
+    x:Class="SpaceInvaders.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpaceInvaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <!--<VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="desktopView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="mobileView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="settingsBtn.FontSize" Value="13"/>
+                        <Setter Target="aboutBtn.FontSize" Value="13"/>
+                        <Setter Target="howBtn.FontSize" Value="13"/>
+                        <Setter Target="backBtn.FontSize" Value="13"/>
+                        <Setter Target="playBtn.FontSize" Value="13"/>
+                        <Setter Target="musicText.FontSize" Value="15"/>
+                        <Setter Target="volumeText.FontSize" Value="15"/>
+                        <Setter Target="musicOn.FontSize" Value="15"/>
+                        <Setter Target="musicOff.FontSize" Value="15"/>
+                        <Setter Target="clearText.FontSize" Value="15"/>
+                        <Setter Target="clearBtn.FontSize" Value="13"/>
+                        <Setter Target="clearBtn.Width" Value="100"/>
+                        <Setter Target="clearBtn.Height" Value="30"/>
+
+                        <Setter Target="musicText.Margin" Value="0,20,20,20"/>
+                        <Setter Target="volumeText.Margin" Value="0,20,20,20"/>
+                        <Setter Target="clearText.Margin" Value="20,40,0,20"/>
+                        <Setter Target="clearBtn.Margin" Value="20,20,0,20"/>
+                        <Setter Target="musicOn.Margin" Value="20,20,0,20"/>
+                        <Setter Target="slider.Margin" Value="20,10,0,20"/>
+                        <Setter Target="slider.Width" Value="100"/>
+
+
+                        <Setter Target="moveText.FontSize" Value="15"/>
+                        <Setter Target="shootText.FontSize" Value="15"/>
+                        <Setter Target="leftArrowImage.Width" Value="40"/>
+                        <Setter Target="rightArrowImage.Width" Value="40"/>
+                        <Setter Target="upArrowImage.Width" Value="40"/>
+                        <Setter Target="spaceBarImage.Width" Value="70"/>
+                        <Setter Target="objText.FontSize" Value="15"/>
+                        <Setter Target="objText2.FontSize" Value="10"/>
+
+                        <Setter Target="moveText.Margin" Value="0,20,20,20"/>
+                        <Setter Target="shootText.Margin" Value="0,20,20,20"/>
+                        <Setter Target="leftArrowImage.Margin" Value="20,8,0,0"/>
+                        <Setter Target="rightArrowImage.Margin" Value="0,8,0,0"/>
+                        <Setter Target="upArrowImage.Margin" Value="20,22,0,0"/>
+                        <Setter Target="spaceBarImage.Margin" Value="0,20,0,0"/>
+                        <Setter Target="objText.Margin" Value="40,50,20,0"/>
+
+                        <Setter Target="dubeNameText.FontSize" Value="13"/>
+                        <Setter Target="youngNameText.FontSize" Value="13"/>
+                        <Setter Target="dubeNameText.Width" Value="Auto"/>
+                        <Setter Target="youngNameText.Width" Value="Auto"/>
+                        <Setter Target="dubeNameText.Margin" Value="0,20,0,0"/>
+                        <Setter Target="youngNameText.Margin" Value="0,20,0,0"/>
+                        <Setter Target="dubeImage.Width" Value="125"/>
+                        <Setter Target="youngImage.Width" Value="125"/>
+                        <Setter Target="dubeImage.Height" Value="125"/>
+                        <Setter Target="youngImage.Height" Value="125"/>
+                        <Setter Target="aboutText.FontSize" Value="10"/>
+                        <Setter Target="aboutText.Width" Value="350"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>-->
+
+        <!--</VisualStateManager.VisualStateGroups>-->
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="ms-appx:///Assets/spacedust1.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="headerTabs"  Grid.Row="0" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.9*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="settingsBtn"
+                   
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Stretch"
+                Content=" Settings" 
+                Grid.Row="0"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="25"
+                VerticalAlignment="Center"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                Height="52" Width="auto" Margin="0" BorderThickness="0" RequestedTheme="Dark" Click="settingsBtn_Click" />
+
+            <Button x:Name="howBtn" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Stretch"
+                Content=" How to play" 
+                Grid.Column="1"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="25"
+                VerticalAlignment="Center"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                Height="52" Width="auto" Margin="0" BorderThickness="0" RequestedTheme="Light" Click="howBtn_Click" />
+
+
+            <Button x:Name="aboutBtn" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content=" About" 
+                
+                 Grid.Column="2"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="25"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                Height="52" Width="auto" Margin="0" BorderThickness="0" RequestedTheme="Light" Click="aboutBtn_Click" />
+
+        </Grid>
+
+        <Grid x:Name="settingsGrid" Grid.Row="1" HorizontalAlignment="Stretch" Visibility="Collapsed">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="750"></ColumnDefinition>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock x:Name="musicText" 
+                       HorizontalAlignment="right" 
+                       Grid.Column="0" 
+                       Margin="40,20" 
+                       TextWrapping="Wrap" 
+                       Text="AUDIO" 
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                       />
+                <TextBlock x:Name="volumeText" 
+                       HorizontalAlignment="right" 
+                       Grid.Column="0" 
+                       Margin="40,20" 
+                       TextWrapping="Wrap" 
+                       Text="Volume" 
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                       />
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal"/>
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                    <TextBlock x:Name="musicOn" 
+                       HorizontalAlignment="Left" 
+                       Grid.Column="0" 
+                       Margin="40,20" 
+                       TextWrapping="Wrap" 
+                       Text="ON" 
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Foreground="Lime"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                       />
+                    <TextBlock x:Name="musicOff" 
+                       HorizontalAlignment="Left" 
+                       Grid.Column="0" 
+                       Margin="40,20" 
+                       TextWrapping="Wrap" 
+                       Text="Off" 
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Foreground="DarkRed"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                       />
+
+                </StackPanel>
+                <Slider x:Name="slider" Width="195" HorizontalAlignment="Left" Margin="40,20" Foreground="Yellow" RequestedTheme="Dark" Background="{x:Null}" />
+
+
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="howGrid" Grid.Row="1" HorizontalAlignment="Stretch" Visibility="Collapsed">
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock x:Name="moveText" 
+                           HorizontalAlignment="Right" 
+                           Margin="40,55"
+                           TextWrapping="Wrap" 
+                           Text="Move" 
+                           VerticalAlignment="Top"
+                           FontSize="30"
+                           Foreground="Yellow"
+                           FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                           />
+                            <TextBlock x:Name="shootText" 
+                           HorizontalAlignment="Right" 
+                           Margin="40,15" 
+                           TextWrapping="Wrap" 
+                           Text="Shoot" 
+                           VerticalAlignment="Top"
+                           FontSize="30"
+                           Foreground="Yellow"
+                           FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                           />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="leftArrowImage" 
+                               HorizontalAlignment="Center" 
+                                Width="100"
+                               Margin="40,25,0,0"
+                               Source="ms-appx:///Assets/Arrows/leftarrow.png"
+                               VerticalAlignment="Center" />
+
+                                <Image x:Name="rightArrowImage" 
+                               HorizontalAlignment="Center" 
+                                Width="100"
+                               Margin="0,25,0,0"
+                               Source="ms-appx:///Assets/Arrows/rightarrow.png"
+                               VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="upArrowImage" 
+                               HorizontalAlignment="Center" 
+                                Width="100"
+                               Margin="40,10,0,0"
+                               Source="ms-appx:///Assets/Arrows/uparrow.png"
+                               VerticalAlignment="Center" />
+
+                                <Image x:Name="spaceBarImage" 
+                               HorizontalAlignment="Center" 
+                                Width="200"
+                               Margin="0"
+                               Source="ms-appx:///Assets/Arrows/spacebar.png"
+                               VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock x:Name="objText" 
+                       HorizontalAlignment="Center" 
+                       Grid.Column="0" 
+                       Margin="40,75,20,0" 
+                       TextWrapping="Wrap" 
+                       TextAlignment="Center"
+                       Text="Earth is being invaded by aliens!" 
+                       VerticalAlignment="Top"
+                       FontSize="40"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                       />
+                        <TextBlock x:Name="objText2" 
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center"
+                       Grid.Column="0" 
+                       MaxWidth="1500"
+                       Margin="40,25,20,0" 
+                       TextWrapping="Wrap" 
+                       Text="Protect your planet by destroying the waves of alien fleets before they reach ground zero!!" 
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                       />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+
+        <Grid x:Name="aboutGrid" Grid.Row="1" HorizontalAlignment="Stretch" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="name" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"
+                       Margin="400,0,0,0"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Text="Matan  eldar(793)" 
+                       FontSize="40"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders" Width="701" Grid.ColumnSpan="2" Height="162"
+                       />
+            <TextBlock x:Name="aboutText" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"
+                       Margin="0,50,0,0"
+                       Grid.Row="1"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Text="I am a student at the Naomi Shemer school in israel, ganyavne. " 
+                       FontSize="20"
+                       Foreground="Yellow"
+                       FontFamily="Fonts/space_invaders.ttf#Space Invaders" Width="701" Grid.ColumnSpan="2" Height="162"
+                       />
+
+
+
+
+
+        </Grid>
+
+        <Grid x:Name="footerBtns" Grid.Row="2" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="backBtn" 
+                Content="Back to Menu" 
+                HorizontalAlignment="Stretch" 
+                VerticalContentAlignment="Center"
+                VerticalAlignment="Center" Click="settingsBackBtn_Click" 
+                Width="auto"
+                Margin="10,0,10,0"
+                BorderBrush="Yellow"
+                FontSize="20"
+                Foreground="Yellow"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                Height="52"
+                
+                />
+            <Button x:Name="playBtn" 
+                Content=" New Game" 
+                HorizontalAlignment="Stretch" 
+                VerticalContentAlignment="Center"
+                Grid.Column="1"
+                Margin="10,0,10,0"
+                    Click="playBtn_Click"
+                VerticalAlignment="Center"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="20"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders"
+                Height="52" Width="auto"
+                   
+                />
+
+        </Grid>
+
+    </Grid>
+
+</Page>
