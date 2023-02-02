@@ -129,6 +129,7 @@
     <Compile Include="Classes\MovingItem.cs" />
     <Compile Include="Classes\RedEnemy.cs" />
     <Compile Include="Classes\Spaceship1.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>

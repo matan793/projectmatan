@@ -1,4 +1,5 @@
-﻿
+﻿using DataBase;
+using Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
-using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
+using Windows.System;
+using App1;
 
 namespace SpaceInvaders
 {
@@ -29,6 +31,7 @@ namespace SpaceInvaders
         private uint cooldown;
         protected DispatcherTimer GameTimer;//הטיימר שאחראי על תנועת הדמות
         private int speed;
+        private Database.Models.User user;
         public int DefendTime { get; private set; }
         public Manager(Canvas Arena)
         {
@@ -80,7 +83,6 @@ namespace SpaceInvaders
         private void Enemy_Touch(object sender, EventArgs e)
         {
             Enemy enemy = (Enemy)sender;
-
             Rect enemyrectangle = enemy.GetRectangle();
             Rect shiprectangle = this.spaceship1.GetRectangle();
             Rect touchrectangle = RectHelper.Intersect(shiprectangle, enemyrectangle);
@@ -193,6 +195,7 @@ namespace SpaceInvaders
         {
             StopCharacter();
             enemies.Stop();
+            SqlHelper.AddScore(Session.User.Id, points);
         }
         internal void StopCharacter()
         {

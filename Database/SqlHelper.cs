@@ -47,9 +47,35 @@ namespace DataBase
                     };
                     return user;
                 }
+                }
+            return null; //המשתמש לא קיים
+        }
+        public static User GetUser(string tofind, Type t)
+        {
+            string query = $"SELECT * FROM Users WHERE Username='{tofind}'";
+            if (t == Type.Email)
+                query = query.Replace("Username", "Mail");
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                {
+                    reader.Read();
+                    User user = new User
+                    {
+                        Id = reader.GetInt32(0),
+                        Username = reader.GetString(1),
+                        Password = reader.GetString(2),
+                        Mail = reader.GetString(3)
+                    };
+                    return user;
+                }
             }
             return null; //המשתמש לא קיים
         }
+        
         public static User GetUser(string name, string password)
         {
             string str = dbpath;
@@ -81,12 +107,34 @@ namespace DataBase
                 return null; //the user exist
             // אם אנחנו ממשיכים זאת אומרת שהמשתמש לא קיים ועלינו להוסיף למאגר
             string query = $"INSERT INTO [Users] (Username,Password, Mail) VALUES ('{name}','{password}', '{mail}')";
-            Execute(query); //המשתמש החדש מרגע זה מתווסף למאגר המשתמשים הקיימים 
+            try
+            {
+                Execute(query); //המשתמש החדש מרגע זה מתווסף למאגר המשתמשים הקיימים 
+
+            }
+            catch (Exception e)
+            {
+                if(e.ToString().Contains("Unique") && e.ToString().Contains("Mail"))
+                {
+                    throw new Exception("mail is taken");
+                }
+                
+            }
             user = GetUser(name, password, mail); //קבלת המשתמש שהתווסף כרגע
 
             return user;
 
         }
 
+        public static void AddScore(int Id, int score)
+        {
+           
+        }
+
+        public enum Type
+        {
+            User,
+            Email
+        }
     }
 }

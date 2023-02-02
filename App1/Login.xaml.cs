@@ -1,4 +1,5 @@
-﻿using Database.Models;
+﻿using App1;
+using Database.Models;
 using DataBase;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace SpaceInvaders
             {
                 logerr.Visibility = Visibility.Visible; return;
             }
+            Session.User = user;
             Frame.Navigate(typeof(MainPage));
         }
 

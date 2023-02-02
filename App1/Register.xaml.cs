@@ -100,18 +100,53 @@ namespace SpaceInvaders
         {
             Frame.Navigate(typeof(Login));
         }
-
+        public bool CheackPassword(out string exception)
+        {
+            exception = "";
+            if (password.Password.Length < 8)
+            {
+                exception = "The password must include at least 8 chars.";
+                return false;
+            }
+            if (password.Password.Any(ch => !char.IsLetterOrDigit(ch)))
+            {
+                exception = "The password must include letters or digits.";
+                return false;
+            }
+            if (password.Password.All(Char.IsDigit))
+            {
+                exception = "The password must include letters.";
+                return false;
+            }
+            if (password.Password.All(Char.IsLetter))
+            {
+                exception = "The password must include digits.";
+                return false;
+            }
+            if (!password.Password.Any(Char.IsUpper))
+            {
+                exception = "the password must include one or more capitale latter in it.";
+                return false;
+            }
+            return true;
+        }
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
-            User user = SqlHelper.AddUser(username.Text, password.Password, email.Text);
-
+            string exp = "";
             if (password.Password != cpassword.Password)
             {
                 regerr.Text = "the passwords don'nt match. try again";
                 regerr.Visibility = Visibility.Visible;
             }
-            else {
+            else if (!CheackPassword(out exp))
+            {
+                regerr.Text = exp;
+                regerr.Visibility = Visibility.Visible;
+            }
+            else { 
+
+            User user = SqlHelper.AddUser(username.Text, password.Password, email.Text);
 
                 if (user == null)
                 {
@@ -119,7 +154,7 @@ namespace SpaceInvaders
                     regerr.Visibility = Visibility.Visible;
                 }
                 else
-                    Frame.Navigate(typeof(Login));
+                    Frame.Navigate(typeof(Login)); 
             }
             
         }
