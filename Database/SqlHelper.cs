@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using Database.Models; 
+using Database.Models;
+using Windows.Media.Core;
+using System.Collections.ObjectModel;
 
 namespace DataBase
 {
@@ -24,6 +26,40 @@ namespace DataBase
                 connection.Open();
                 SqliteCommand command = new SqliteCommand(query, connection);
                 command.ExecuteNonQuery();
+            }
+        }
+        public static ObservableCollection<User> GetUsers()
+        {
+            string query = "SELECT Username, Score, HighScore FROM Users";
+            ObservableCollection<User> users = new ObservableCollection<User>();
+            try
+            {
+                using (SqliteConnection connection = new SqliteConnection(connectionString))
+                {
+                    connection.Open();
+                    SqliteCommand cmd = new SqliteCommand(query, connection);
+                    SqliteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        User user = new User() { 
+                            
+                            Username= reader.GetString(0),
+                            Score = reader.GetInt32(1),
+                            HighScore = reader.GetInt32(2)
+                        };
+                        users.Add(user);
+                        
+                    }
+
+                   
+                }
+                return users;
+            }
+            catch (Exception)
+            {
+                return null;
+
+                throw;
             }
         }
         public static User GetUser(string name, string password, string mail)
@@ -93,7 +129,9 @@ namespace DataBase
                         Id = reader.GetInt32(0),
                         Username = reader.GetString(1),
                         Password = reader.GetString(2),
-                        Mail = reader.GetString(3)
+                        Mail = reader.GetString(3),
+                        Score= reader.GetInt32(4),
+                        HighScore= reader.GetInt32(5)
                     };
                     return user;
                 }
@@ -126,9 +164,10 @@ namespace DataBase
 
         }
 
-        public static void AddScore(int Id, int score)
+        public static void AddScore(int Id, int score, int highscore)
         {
-           
+            string query = $"UPDATE Users SET Score = {score}, HighScore = {highscore} WHERE Id = {Id}";
+            Execute(query);
         }
 
         public enum Type

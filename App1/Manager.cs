@@ -31,7 +31,6 @@ namespace SpaceInvaders
         private uint cooldown;
         protected DispatcherTimer GameTimer;//הטיימר שאחראי על תנועת הדמות
         private int speed;
-        private Database.Models.User user;
         public int DefendTime { get; private set; }
         public Manager(Canvas Arena)
         {
@@ -140,6 +139,7 @@ namespace SpaceInvaders
                             {
                                 removelifie(lives, null);
                                 lives--;
+                                
                             }
                         }
                     }
@@ -195,7 +195,11 @@ namespace SpaceInvaders
         {
             StopCharacter();
             enemies.Stop();
-            SqlHelper.AddScore(Session.User.Id, points);
+
+            Session.User.Score += points;
+            Session.User.HighScore = points > Session.User.HighScore ? points : Session.User.HighScore;
+
+            SqlHelper.AddScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
         }
         internal void StopCharacter()
         {
