@@ -30,7 +30,7 @@ namespace DataBase
         }
         public static ObservableCollection<User> GetUsers()
         {
-            string query = "SELECT Username, Score, HighScore FROM Users";
+            string query = "SELECT Username, Score, HighScore FROM Users ORDER BY HighScore DESC";
             ObservableCollection<User> users = new ObservableCollection<User>();
             try
             {
