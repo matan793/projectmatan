@@ -22,27 +22,37 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Assets/spacedust1.jpg"/>
         </Grid.Background>
+      
         <Grid x:Name="gameTopBar">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
-
-            <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <GridView>
+             
+            <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="scoreText" FontSize="20" Width="auto" Text="SCORE" Canvas.ZIndex="9" Margin="25,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="auto" Foreground="Yellow"
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
                 <TextBlock x:Name="scoreBlock" FontSize="20" Width="auto" Text="000" Canvas.ZIndex="9" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="auto" Foreground="Yellow"
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
             </StackPanel>
-            <TextBlock x:Name="defendtimetext" Text="mirav" Foreground="White" FontSize="30"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="65" Width="74"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Image x:Name="life1" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0"/>
-                <Image x:Name="life2" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0"/>
-                <Image x:Name="life3" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0,0,0"/>
-                <TextBlock x:Name="livesText" FontSize="20" Width="auto" Text="LIVES" Canvas.ZIndex="9" Margin="25,0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="auto" Foreground="Yellow"
+            </GridView>
+            <Viewbox Grid.Column="0">
+                <TextBlock x:Name="defendtimetext" Text="mirav" Foreground="White" FontSize="30"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="65" Width="74"/>
+             </Viewbox>
+            <Viewbox HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Image x:Name="life1" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0"/>
+                    <Image x:Name="life2" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0"/>
+                    <Image x:Name="life3" Source="ms-appx:///Assets/Spaceship1/player.png" Height="30" Width="30" Margin="5,0,0,0"/>
+                    <TextBlock x:Name="livesText" FontSize="20" Width="auto" Text="LIVES" Canvas.ZIndex="9" Margin="25,0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="auto" Foreground="Yellow"
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
-            </StackPanel>
+                </StackPanel>
+            </Viewbox>
+
+
         </Grid>
+
 
         <Grid Background="#7F808080" Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -54,18 +64,20 @@
             <TextBlock Grid.Row="1" Text="press f" FontSize="28" Foreground="White"></TextBlock>
 
         </Grid>
+        <Viewbox Name="kushi" Stretch="Uniform">
         <Canvas x:Name="canvas" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="1920" Height="1080" Grid.RowSpan="2" Grid.ColumnSpan="2" >
 
             <Grid x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="#C1FFFF00" Margin="500,200,0,0">
-                <TextBlock Text="Game Over" FontSize="60" Margin="200, 30, 0, 0" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240, 120, 0, 0" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0"  />
-                <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" />
+                <TextBlock Text="Game Over" FontSize="60" Margin="200,30,0,496" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240,120,45,439" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0" Click="Button_Click_1"  />
+                <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
             </Grid>
             <Canvas.Background>
                 <ImageBrush Stretch="Fill"/>
             </Canvas.Background>
         </Canvas>
+          </Viewbox>
         <!--<StackPanel x:Name="gameOverPanel" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="5" Background="Black" BorderBrush="Yellow" Visibility="Collapsed">
             <TextBlock x:Name="gameOverText" Text="Game Over" Margin="20" Foreground="Yellow" FontSize="70" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
             <TextBlock x:Name="finalScoreText" Text="Score" Margin="0" Foreground="Yellow" HorizontalAlignment="Center" FontSize="20" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />

@@ -54,6 +54,7 @@ namespace SpaceInvaders
                 scoreBlock.Text = "" + points;
 
             }
+            this.points = points;
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace SpaceInvaders
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
            
-            this.myManager = new Manager(canvas);
+            this.myManager = new Manager(canvas, kushi);
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             this.myManager.addpoints += AddPoints;
@@ -123,6 +124,14 @@ namespace SpaceInvaders
           
         }
 
-      
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage), (CharacterType)0);
+        }
     }
 }

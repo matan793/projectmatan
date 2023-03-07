@@ -128,7 +128,9 @@
                    Source="ms-appx:///Assets/logo.png"
                    VerticalAlignment="Center" 
                    Grid.Row="1"/>
-        <Button Style="{StaticResource ButtonStyle1}" x:Name="playBtn" 
+        <Viewbox Grid.Row="2">
+        <Grid >
+            <Button Style="{StaticResource ButtonStyle1}" x:Name="playBtn" 
                 VerticalContentAlignment="Bottom"
                 HorizontalContentAlignment="Center"
                 Content=" New Game" 
@@ -140,6 +142,7 @@
                 Margin="0,106,0,0"
                 Grid.Row="2" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="playBtn_Click" 
                 PointerEntered="playBtn_PointerEntered" PointerExited="playBtn_PointerExited"/>
+        
         <Button x:Name="Quit" 
             VerticalContentAlignment="Bottom"
             HorizontalContentAlignment="Center"
@@ -160,6 +163,7 @@
             VerticalAlignment="Top"
             Margin="0,213,0,0"
             Grid.Row="2" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="logout_Click"/>
-
+        </Grid>
+        </Viewbox>
     </Grid>
 </Page>
