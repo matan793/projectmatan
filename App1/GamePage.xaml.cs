@@ -71,7 +71,7 @@ namespace SpaceInvaders
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
            
-            this.myManager = new Manager(canvas, kushi);
+            this.myManager = new Manager(canvas);
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             this.myManager.addpoints += AddPoints;
