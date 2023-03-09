@@ -10,6 +10,7 @@ using Windows.ApplicationModel.Chat;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,8 +33,17 @@ namespace SpaceInvaders
         public Login()
         {
             this.InitializeComponent();
-            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
-        }
+
+            var size = new Size(1920, 1080);
+            ApplicationView.PreferredLaunchViewSize = size;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            Window.Current.CoreWindow.SizeChanged += (s, e) =>
+            {
+                //ApplicationView.GetForCurrentView().TryResizeView(size);
+                Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+
+            };
+            }
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {

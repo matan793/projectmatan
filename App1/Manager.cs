@@ -19,7 +19,7 @@ namespace SpaceInvaders
 {
     internal class Manager
     {
-        private Spaceship1 spaceship1;
+        private Spaceship spaceship;
         public event EventHandler removelifie;//מחקית לב מן השחקן
         public event EventHandler addpoints;//הוספת נק
         public event EventHandler updateDefendTime;//הוספת נק
@@ -37,7 +37,7 @@ namespace SpaceInvaders
             this.level = 1;
             this.speed = 3;
             this.cooldown = 0;
-            this.spaceship1 = new Spaceship1(50, 900, Arena, 100);
+            this.spaceship = new Spaceship(50, 900, Arena, 100, Session.User.Skin);
             
             this.enemies = new Enemies(3, 10, speed,Arena, level);
             for (int i = 0; i < enemies.Enemiess.GetLength(0); i++)
@@ -62,7 +62,7 @@ namespace SpaceInvaders
         {
             if(cooldown < uint.MaxValue)
                 cooldown++;
-            this.DefendTime = spaceship1.Defendsec;
+            this.DefendTime = spaceship.Defendsec;
             this.updateDefendTime?.Invoke(this, null);
             if(enemies.Count == 0)
             {
@@ -83,7 +83,7 @@ namespace SpaceInvaders
         {
             Enemy enemy = (Enemy)sender;
             Rect enemyrectangle = enemy.GetRectangle();
-            Rect shiprectangle = this.spaceship1.GetRectangle();
+            Rect shiprectangle = this.spaceship.GetRectangle();
             Rect touchrectangle = RectHelper.Intersect(shiprectangle, enemyrectangle);
 
             if (touchrectangle.Width > 0 && touchrectangle.Height > 0)//enemy touch spaceship
@@ -93,7 +93,7 @@ namespace SpaceInvaders
                 enemy.Touch -= Enemy_Touch;
             }
 
-            List<Bullet> bullets = this.spaceship1.Bullets;
+            List<Bullet> bullets = this.spaceship.Bullets;
             for (int i = 0; i < bullets.Count & enemy != null; i++)//spaceship bullet touch enemy bullet
             {
                 Rect bulletrectangle = bullets[i].GetRectangle();
@@ -135,7 +135,7 @@ namespace SpaceInvaders
                             enemiesbullets[k].Touch -= Enemy_Touch;
                             enemiesbullets.RemoveAt(k);
 
-                            if (this.spaceship1.Defendsec == 0 && removelifie != null)
+                            if (this.spaceship.Defendsec == 0 && removelifie != null)
                             {
                                 removelifie(lives, null);
                                 lives--;
@@ -153,31 +153,31 @@ namespace SpaceInvaders
                 switch (virtualKey)
                 {
                     case VirtualKey.Left:
-                        spaceship1.GoLeft();
+                        spaceship.GoLeft();
                         break;
 
                     case VirtualKey.A:
-                        if (this.spaceship1 != null)
-                            this.spaceship1.GoLeft();
+                        if (this.spaceship != null)
+                            this.spaceship.GoLeft();
                         break;
 
                     case VirtualKey.Right:
 
-                        this.spaceship1.GoRight();
+                        this.spaceship.GoRight();
                         break;
                     case VirtualKey.D:
 
-                        this.spaceship1.GoRight();
+                        this.spaceship.GoRight();
                         break;
                     case VirtualKey.Space:
                         if(cooldown > 10)
                     {
-                        this.spaceship1.Shoot();
+                        this.spaceship.Shoot();
                         cooldown= 0;
                     }
                     break;
                 case VirtualKey.F: 
-                        this.spaceship1.defence();
+                        this.spaceship.defence();
                     break;
                         
                  
@@ -189,7 +189,7 @@ namespace SpaceInvaders
         }
         public void defend()
         {
-            this.spaceship1.defence();
+            this.spaceship.defence();
         }
         public void StopGame()
         {
@@ -203,8 +203,8 @@ namespace SpaceInvaders
         }
         internal void StopCharacter()
         {
-            if(this.spaceship1 != null)
-                this.spaceship1.Stop();
+            if(this.spaceship != null)
+                this.spaceship.Stop();
            
         }
     }

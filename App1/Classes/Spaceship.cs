@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Database.Models;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
@@ -14,7 +15,7 @@ namespace SpaceInvaders
     //    idleLeft, idleRight, runLeft, runRight, jumpLeft, jumpRight, dieLeft, dieRight, attackLeft, attackRight,
     //    glideLeft, glideRight, slideLeft, slideRight, throwLeft, throwRight, climbUp, jumpAttackLeft, jumpAttackRight, jumpThrowLeft, jumpThrowRight
     //}
-    internal class Spaceship1 : MovingItem
+    internal class Spaceship : MovingItem
     {
         public event EventHandler Touch;
         private List<Bullet> bullets;
@@ -22,9 +23,9 @@ namespace SpaceInvaders
         private int defendsec = 0;
         public int Defendsec { get { return defendsec; } }
         DispatcherTimer defendtimer;
-        public Spaceship1(double placeX, double placeY, Canvas arena, int size) : base(placeX, placeY, arena, size)
+        public Spaceship(double placeX, double placeY, Canvas arena, int size, Skin skin) : base(placeX, placeY, arena, size)
         {
-            this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Spaceship1/Ship.png"));
+            this.image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Spaceship1/{skin}.png"));
             this.bullets = new List<Bullet>();
         }
 

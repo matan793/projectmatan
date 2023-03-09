@@ -129,7 +129,7 @@
                    VerticalAlignment="Center" 
                    Grid.Row="1"/>
         <Viewbox Grid.Row="2">
-        <Grid >
+        <Grid>
             <Button Style="{StaticResource ButtonStyle1}" x:Name="playBtn" 
                 VerticalContentAlignment="Bottom"
                 HorizontalContentAlignment="Center"
@@ -139,11 +139,22 @@
                 FontSize="40"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top"
-                Margin="0,106,0,0"
-                Grid.Row="2" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="playBtn_Click" 
+                Margin="0,10,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="playBtn_Click" 
                 PointerEntered="playBtn_PointerEntered" PointerExited="playBtn_PointerExited"/>
-        
-        <Button x:Name="Quit" 
+            
+                <Button Style="{StaticResource ButtonStyle1}" x:Name="shopbtn" 
+                VerticalContentAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                Content=" Shop" 
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="40"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top"
+                Margin="0,106,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="shopbtn_Click" 
+                PointerEntered="playBtn_PointerEntered" PointerExited="playBtn_PointerExited"/>
+            
+                <Button x:Name="Quit" 
             VerticalContentAlignment="Bottom"
             HorizontalContentAlignment="Center"
             Content=" Quit Game" 

@@ -79,7 +79,10 @@ namespace DataBase
                         Id = reader.GetInt32(0),
                         Username = reader.GetString(1),
                         Password = reader.GetString(2),
-                        Mail= reader.GetString(3)
+                        Mail= reader.GetString(3),
+                        Score = reader.GetInt32(4),
+                        HighScore = reader.GetInt32(5),
+                        Skin = (Skin)reader.GetInt32(6)
                     };
                     return user;
                 }

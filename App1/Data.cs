@@ -11,7 +11,7 @@ namespace App1
     {
         public static User User { get;  set; }
 
-        public static void Rest()
+        public static void Reset()
         {
             Session.User = null;
            

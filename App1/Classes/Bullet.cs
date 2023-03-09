@@ -13,7 +13,7 @@ namespace SpaceInvaders
     {
         public Bullet(double placeX, double placeY, Canvas arena, int size,bool IsPlayerShooting, int speedx) : base(placeX, placeY, arena, size)
         {
-            this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Spaceship1/player.png"));
+            this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Spaceship1/Default.png"));
 
             this.speedX = speedx;
             if (IsPlayerShooting)
