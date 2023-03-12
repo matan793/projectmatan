@@ -34,16 +34,8 @@ namespace SpaceInvaders
         {
             this.InitializeComponent();
 
-            var size = new Size(1920, 1080);
-            ApplicationView.PreferredLaunchViewSize = size;
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            Window.Current.CoreWindow.SizeChanged += (s, e) =>
-            {
-                //ApplicationView.GetForCurrentView().TryResizeView(size);
-                Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
 
-            };
-            }
+        }
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -82,7 +82,7 @@ namespace DataBase
                         Mail= reader.GetString(3),
                         Score = reader.GetInt32(4),
                         HighScore = reader.GetInt32(5),
-                        Skin = (Skin)reader.GetInt32(6)
+                        Skin = (Skins)reader.GetInt32(6)
                     };
                     return user;
                 }
@@ -141,6 +141,27 @@ namespace DataBase
             }
             return null; //המשתמש לא קיים
         }
+
+        public static List<Skins> GetPerchases(int Id)
+        {
+            List<Skins> products = new List<Skins>();
+            string query = $"SELECT * from Purchase WHERE Id={Id} ORDER BY ProductId";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                {
+                    while (reader.Read())
+                    {
+                        products.Add((Skins)reader.GetInt32(1));
+                    }
+                }
+            }
+            return products;
+        }
+
         public static User AddUser(string name, string password, string mail)
         {
             User user = GetUser(name, password, mail); // ניסיון שליפה מהמאגר

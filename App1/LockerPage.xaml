@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="SpaceInvaders.LockerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpaceInvaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="ms-appx:///Assets/spacedust1.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="149*"></RowDefinition>
+            <RowDefinition Height="256*"></RowDefinition>
+            <RowDefinition Height="595*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="698*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="Back" 
+                Content="Back" 
+                VerticalAlignment="Top"
+                Margin="10,10,0,0" 
+                Grid.Row="0"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders"  Height="33" Width="110" Click="Back_Click"
+                />
+        <Image x:Name="textBlock"
+                   HorizontalAlignment="Center"
+                   Source="ms-appx:///Assets/logo.png"
+                   VerticalAlignment="Top" Height="252" Width="497" Grid.RowSpan="2" Grid.Row="1"/>
+        <Viewbox Grid.Row="2">
+            <Grid>
+                <ListView x:Name="skins" ItemsSource="{x:Bind ViewModel.SkinsList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="Image">
+                            <Grid>
+                                <Image Source="{x:Bind Source}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Page>

@@ -128,13 +128,18 @@
     <Compile Include="Classes\GreenEnemy.cs" />
     <Compile Include="Classes\MovingItem.cs" />
     <Compile Include="Classes\RedEnemy.cs" />
+    <Compile Include="Classes\Skin.cs" />
     <Compile Include="Classes\Spaceship.cs" />
+    <Compile Include="Classes\ViewModel.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="HighScores.xaml.cs">
       <DependentUpon>HighScores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LockerPage.xaml.cs">
+      <DependentUpon>LockerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -149,9 +154,6 @@
     </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ShopPage.xaml.cs">
-      <DependentUpon>ShopPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LockerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,10 +219,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

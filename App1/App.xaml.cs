@@ -30,6 +30,7 @@ namespace SpaceInvaders
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+           
         }
 
         /// <summary>
@@ -66,6 +67,13 @@ namespace SpaceInvaders
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+                    Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+                    
+                    Window.Current.CoreWindow.SizeChanged += (s, m) =>
+                    {
+                        Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+
+                    };
                     rootFrame.Navigate(typeof(Login), e.Arguments);
                 }
                 // Ensure the current window is active

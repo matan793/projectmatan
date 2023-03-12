@@ -68,7 +68,7 @@ namespace SpaceInvaders
 
         private void shopbtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ShopPage));
+            Frame.Navigate(typeof(LockerPage));
         }
     }
 }
