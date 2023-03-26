@@ -1,5 +1,4 @@
-﻿using App1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -66,9 +65,14 @@ namespace SpaceInvaders
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
         }
 
-        private void shopbtn_Click(object sender, RoutedEventArgs e)
+        private void lockerpbtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LockerPage));
+        }
+
+        private void shoprpbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShopPage));
         }
     }
 }

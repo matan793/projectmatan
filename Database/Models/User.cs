@@ -15,7 +15,7 @@ namespace Database.Models
         public string Mail { get; set; }
         public int Score { get; set; }
         public int HighScore { get; set; }
-        public Skins Skin { get; set; }
+        public Skin Skin { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)
@@ -24,9 +24,10 @@ namespace Database.Models
         }
 
     }
-    public enum Skins
+    public enum Skin
     {
         Default,
-        Ship
+        Ship,
+        mirav
     }
 }

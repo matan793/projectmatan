@@ -13,7 +13,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
 using Windows.System;
-using App1;
+
 
 namespace SpaceInvaders
 {

@@ -9,11 +9,13 @@ using Windows.Storage;
 using Database.Models;
 using Windows.Media.Core;
 using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace DataBase
 {
     public static class SqlHelper
     {
+        
         static string dbpath = ApplicationData.Current.LocalFolder.Path;
         //static string dbpath = "C:\\Users\\chokeonmydick\\Desktop\\App1-backup";
         private static string connectionString = "Filename=" + dbpath + "\\MyDatabase.db";
@@ -82,38 +84,14 @@ namespace DataBase
                         Mail= reader.GetString(3),
                         Score = reader.GetInt32(4),
                         HighScore = reader.GetInt32(5),
-                        Skin = (Skins)reader.GetInt32(6)
+                        Skin = (Skin)reader.GetInt32(6)
                     };
                     return user;
                 }
                 }
             return null; //המשתמש לא קיים
         }
-        public static User GetUser(string tofind, Type t)
-        {
-            string query = $"SELECT * FROM Users WHERE Username='{tofind}'";
-            if (t == Type.Email)
-                query = query.Replace("Username", "Mail");
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
-            {
-                connection.Open();
-                SqliteCommand command = new SqliteCommand(query, connection);
-                SqliteDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)//האםח יש נתונים
-                {
-                    reader.Read();
-                    User user = new User
-                    {
-                        Id = reader.GetInt32(0),
-                        Username = reader.GetString(1),
-                        Password = reader.GetString(2),
-                        Mail = reader.GetString(3)
-                    };
-                    return user;
-                }
-            }
-            return null; //המשתמש לא קיים
-        }
+        
         
         public static User GetUser(string name, string password)
         {
@@ -141,10 +119,36 @@ namespace DataBase
             }
             return null; //המשתמש לא קיים
         }
-
-        public static List<Skins> GetPerchases(int Id)
+        public static List<Product> GetShop(int Id)
         {
-            List<Skins> products = new List<Skins>();
+            List<Product> products = new List<Product>();
+            string query = $"SELECT * from Products WHERE ProductId NOT IN (SELECT ProductId  FROM Purchase  WHERE Id = {Id})";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                {
+                    while (reader.Read())
+                    {
+                        Product product = new Product
+                        {
+                            Uid = Id,
+                            Skin = (Skin)reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Price = reader.GetInt32(2)
+                        };
+                        products.Add(product);
+                    }
+                }
+            }
+            return products;
+        }
+
+        public static List<Product> GetPerchases(int Id)
+        {
+            List <Product > products = new List<Product>();
             string query = $"SELECT * from Purchase WHERE Id={Id} ORDER BY ProductId";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -155,7 +159,13 @@ namespace DataBase
                 {
                     while (reader.Read())
                     {
-                        products.Add((Skins)reader.GetInt32(1));
+                        Product product = new Product
+                        {
+                            Uid = reader.GetInt32(0),
+                            Skin = (Skin)reader.GetInt32(1),
+
+                        };
+                        products.Add(product);
                     }
                 }
             }
@@ -172,7 +182,7 @@ namespace DataBase
             try
             {
                 Execute(query); //המשתמש החדש מרגע זה מתווסף למאגר המשתמשים הקיימים 
-
+                
             }
             catch (Exception e)
             {
@@ -183,7 +193,7 @@ namespace DataBase
                 
             }
             user = GetUser(name, password, mail); //קבלת המשתמש שהתווסף כרגע
-
+            Execute($"INSERT INTO [Purchase] (Id, ProductId) VALUES ('{user.Id}','0')");
             return user;
 
         }

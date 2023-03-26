@@ -23,7 +23,7 @@ namespace SpaceInvaders
         private int defendsec = 0;
         public int Defendsec { get { return defendsec; } }
         DispatcherTimer defendtimer;
-        public Spaceship(double placeX, double placeY, Canvas arena, int size, Skins skin) : base(placeX, placeY, arena, size)
+        public Spaceship(double placeX, double placeY, Canvas arena, int size, Skin skin) : base(placeX, placeY, arena, size)
         {
             this.image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Spaceship1/{skin}.png"));
             this.bullets = new List<Bullet>();
