@@ -99,8 +99,9 @@ namespace SpaceInvaders
         public virtual void Stop()
         {
 
-          
-                //MatchGifToState();
+
+            //MatchGifToState();
+           
                 this.speedX = 0;
 
         }

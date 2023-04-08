@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    internal class EmailManager
+    public class EmailManager
     {
         public static string GetCode(int length)
         {
@@ -52,7 +52,7 @@ namespace Database
             Client.Send(Message);
 
         }
-        public static bool IsCurrent(string mail)
+        public static bool IsCurrect(string mail)
         {
             if (mail.IndexOf("@") < 0)
                 return false;

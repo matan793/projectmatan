@@ -26,7 +26,6 @@ namespace SpaceInvaders
     public sealed partial class GamePage : Page
     {
         private Manager myManager;
-        private CharacterType characterType;
         private int points;
        
 
@@ -57,16 +56,6 @@ namespace SpaceInvaders
             this.points = points;
         }
 
-        /// <summary>
-        /// הפעולה מקבלת את המידע כאשר הדף הנוכחי יפתח
-        /// </summary>
-        /// <param name="e">מכיל מידע שהועבר</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            //קיבלנו את סוג הדמות שבחר המשתמש
-            this.characterType = (CharacterType)e.Parameter;
-
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -131,7 +120,7 @@ namespace SpaceInvaders
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage), (CharacterType)0);
+            Frame.Navigate(typeof(GamePage));
         }
     }
 }

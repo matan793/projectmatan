@@ -50,7 +50,7 @@
                 </StackPanel>
             </Viewbox>
 
-
+          
         </Grid>
 
 
@@ -66,14 +66,14 @@
         </Grid>
         <Viewbox Grid.Row="0" Grid.Column="0">
         <Canvas x:Name="canvas" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="1920" Height="1080" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                <Grid  x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Visible" Width="790" Height="608" Background="#C1FFFF00" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Game Over" FontSize="60" Margin="200,30,0,496" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                    <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240,120,45,439" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                    <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0" Click="Button_Click_1"  />
+                    <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
+                </Grid>
 
-            <Grid x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="#C1FFFF00" Margin="500,200,0,0">
-                <TextBlock Text="Game Over" FontSize="60" Margin="200,30,0,496" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240,120,45,439" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0" Click="Button_Click_1"  />
-                <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
-            </Grid>
-            <Canvas.Background>
+                <Canvas.Background>
                 <ImageBrush Stretch="Fill"/>
             </Canvas.Background>
         </Canvas>

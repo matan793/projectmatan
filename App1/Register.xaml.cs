@@ -12,8 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using DataBase;
+
 using Database.Models;
+using Database;
+using Windows.Storage.Provider;
+using DataBase;
+using Windows.ApplicationModel.UserDataTasks;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace SpaceInvaders
@@ -23,7 +27,8 @@ namespace SpaceInvaders
     /// </summary>
     public sealed partial class Register : Page
     {
-        bool us = false, ps = false, em = false, cps = false;
+        private bool us = false, ps = false, em = false, cps = false;
+        private string varcode = "";
 
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -32,9 +37,9 @@ namespace SpaceInvaders
             else
                 us = false;
             if (us && ps & em & cps)
-                loginbtn.IsEnabled = true;
+                Regbtn.IsEnabled = true;
             else
-                loginbtn.IsEnabled = false;
+                Regbtn.IsEnabled = false;
         }
 
       
@@ -45,9 +50,9 @@ namespace SpaceInvaders
             else
                 em = false;
             if (us && ps & em & cps)
-                loginbtn.IsEnabled = true;
+                Regbtn.IsEnabled = true;
             else
-                loginbtn.IsEnabled = false;
+                Regbtn.IsEnabled = false;
         }
 
      
@@ -74,9 +79,9 @@ namespace SpaceInvaders
             else
                 ps = false;
             if (us && ps & em & cps)
-                loginbtn.IsEnabled = true;
+                Regbtn.IsEnabled = true;
             else
-                loginbtn.IsEnabled = false;
+                Regbtn.IsEnabled = false;
         }
 
         private void cpassword_PasswordChanged(object sender, RoutedEventArgs e)
@@ -86,9 +91,9 @@ namespace SpaceInvaders
             else
                 cps = false;
             if (us && ps & em & cps)
-                loginbtn.IsEnabled = true;
+                Regbtn.IsEnabled = true;
             else
-                loginbtn.IsEnabled = false;
+                Regbtn.IsEnabled = false;
         }
 
         public Register()
@@ -131,7 +136,45 @@ namespace SpaceInvaders
             return true;
         }
 
-        private void playBtn_Click(object sender, RoutedEventArgs e)
+        private void varcodetxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(varcodetxt.Text == varcode)
+            {
+                User user = SqlHelper.AddUser(username.Text, password.Password, email.Text);
+                SqlHelper.AddProduct(user.Id, 0);
+             
+                Frame.Navigate(typeof(Login));
+            }
+        }
+
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            verifygrid.Visibility = Visibility.Collapsed;
+            EnableAll();
+        }
+
+        private void DisableAll()
+        {
+            password.IsEnabled= false;
+            cpassword.IsEnabled= false;
+            email.IsEnabled= false;
+            username.IsEnabled= false;
+
+            Regbtn.IsEnabled= false;
+            Regbtn.Visibility= Visibility.Collapsed;
+        }
+        private void EnableAll()
+        {
+            password.IsEnabled = true;
+            cpassword.IsEnabled = true;
+            email.IsEnabled = true;
+            username.IsEnabled = true;
+
+            Regbtn.IsEnabled = true;
+            Regbtn.Visibility = Visibility.Visible;
+
+        }
+        private void RegBtn_Click(object sender, RoutedEventArgs e)
         {
             string exp = "";
             if (password.Password != cpassword.Password)
@@ -139,22 +182,32 @@ namespace SpaceInvaders
                 regerr.Text = "the passwords don'nt match. try again";
                 regerr.Visibility = Visibility.Visible;
             }
+            else if (!EmailManager.IsCurrect(email.Text))
+            {
+                regerr.Text = "Mail is in curect pleas try again.";
+                regerr.Visibility = Visibility.Visible;
+            }
             else if (!CheackPassword(out exp))
             {
                 regerr.Text = exp;
                 regerr.Visibility = Visibility.Visible;
             }
-            else { 
-
-            User user = SqlHelper.AddUser(username.Text, password.Password, email.Text);
-
-                if (user == null)
-                {
-                    regerr.Text = "User already exists. try again";
-                    regerr.Visibility = Visibility.Visible;
-                }
-                else
-                    Frame.Navigate(typeof(Login)); 
+            else if (SqlHelper.IsExists(SqlHelper.UserRowType.Username, username.Text))
+            {
+                regerr.Text = "Username already exist.";
+                regerr.Visibility = Visibility.Visible;
+            }
+            else if (SqlHelper.IsExists(SqlHelper.UserRowType.Mail, email.Text))
+            {
+                regerr.Text = "Mail already exist.";
+                regerr.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                varcode = EmailManager.GetCode(8);
+                EmailManager.Send(email.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
+                verifygrid.Visibility = Visibility.Visible;
+                DisableAll();
             }
             
         }

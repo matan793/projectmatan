@@ -21,9 +21,26 @@
         <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="username:"  FontSize="40" Margin="91,418,-91,0" Grid.ColumnSpan="2"/>
         <TextBox   Width="455" Height="66" Name="username" FontSize="40" Background="#66ADA0A0" Margin="394,412,1071,602" TextChanged="username_TextChanged" Grid.ColumnSpan="2"/>
         <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="password:" FontSize="40" Margin="91,518,-91,0" Grid.ColumnSpan="2"/>
-        <PasswordBox    Width="455" Height="66" Name="password" FontSize="40" Background="#66ADA0A0" Margin="394,507,1071,507" PasswordChanged="password_PasswordChanged" Grid.ColumnSpan="2"/>
+        <PasswordBox Width="455" Height="66" Name="password" FontSize="40" Background="#66ADA0A0" Margin="394,507,1071,507" PasswordChanged="password_PasswordChanged" Grid.ColumnSpan="2"/>
+        <Grid Grid.ColumnSpan="2" x:Name="verifygrid"  CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="39" Text="a verification code was sent to your email" HorizontalAlignment="Center" FontFamily="Space Invaders" />
+            <TextBlock FontSize="39" Text="please verify:" VerticalAlignment="Center" Margin="10,0,-10,0" FontFamily="Space Invaders"/>
+            <TextBox Width="300" Height="70" MaxLength="8" FontSize="39" FontFamily="Space Invaders" Name="varcodetxt" TextChanged="varcodetxt_TextChanged" />
+            <Button x:Name="backbtn"
+                PointerEntered="TextBlock_PointerEntered"
+                PointerExited="TextBlock_PointerExited"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="back" 
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                Click="backbtn_Click"
+                FontSize="40" 
+                VerticalAlignment="Top"
+                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261"  HorizontalAlignment="Center" Margin="0,522,0,0" Background="#7F000000"/>
+        </Grid>
 
-        <Button x:Name="loginbtn"
+        <Button x:Name="Regbtn"
                 PointerEntered="TextBlock_PointerEntered"
                 PointerExited="TextBlock_PointerExited"
                 IsEnabled="False"
@@ -34,7 +51,7 @@
                 Foreground="Yellow"
                 FontSize="40" 
                 VerticalAlignment="Top"
-                Margin="46,743,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="playBtn_Click" Grid.Column="1"/>
+                Margin="46,743,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261"  Grid.Column="1" Click="RegBtn_Click"/>
         <Button x:Name="Quitbtn" 
                 Content="quit" 
                 HorizontalAlignment="Right" 
@@ -49,7 +66,7 @@
         <TextBlock x:Name="regerr"  Foreground="Red" Visibility="Collapsed"  FontSize="40" Text="User already exists. try again" Margin="612,584,585,438" Grid.ColumnSpan="2"/>
 
         <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="Email:"  FontSize="40" Margin="131,418,-915,0" Grid.Column="1"/>
-        <TextBox   Width="455" Height="66" x:Name="email" FontSize="40" Background="#66ADA0A0" Margin="494,418,187,596" Grid.Column="1" TextChanged="email_TextChanged"/>
+        <TextBox  Width="455" Height="66" x:Name="email" FontSize="40" Background="#66ADA0A0" Margin="494,418,187,596" Grid.Column="1" TextChanged="email_TextChanged"/>
         <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" FontSize="29" Margin="131,518,-915,0" Grid.Column="1" Text="Confirm password"></TextBlock>
         <PasswordBox    Width="455" Height="66" x:Name="cpassword" FontSize="40" Background="#66ADA0A0" Margin="494,507,187,507" Grid.Column="1" PasswordChanged="cpassword_PasswordChanged"/>
     </Grid>

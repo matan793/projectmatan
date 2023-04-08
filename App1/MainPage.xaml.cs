@@ -31,7 +31,7 @@ namespace SpaceInvaders
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage), CharacterType.Spaceship1);
+            Frame.Navigate(typeof(GamePage));
             
         }
 

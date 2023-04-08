@@ -10,6 +10,8 @@ using Database.Models;
 using Windows.Media.Core;
 using System.Collections.ObjectModel;
 using System.Collections;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace DataBase
 {
@@ -92,7 +94,19 @@ namespace DataBase
             return null; //המשתמש לא קיים
         }
         
-        
+        public static bool IsExists(UserRowType type, string value)
+        {
+            string query = $"SELECT * from Users WHERE {type} = '{value}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                    return true;
+            }
+            return false;
+        }
         public static User GetUser(string name, string password)
         {
             string str = dbpath;
@@ -111,17 +125,18 @@ namespace DataBase
                         Username = reader.GetString(1),
                         Password = reader.GetString(2),
                         Mail = reader.GetString(3),
-                        Score= reader.GetInt32(4),
-                        HighScore= reader.GetInt32(5)
+                        Score = reader.GetInt32(4),
+                        HighScore = reader.GetInt32(5),
+                        Skin = (Skin)reader.GetInt32(6)
                     };
                     return user;
                 }
             }
             return null; //המשתמש לא קיים
         }
-        public static List<Product> GetShop(int Id)
+        public static ObservableCollection<Product> GetShop(int Id)
         {
-            List<Product> products = new List<Product>();
+            ObservableCollection<Product> products = new ObservableCollection<Product>();
             string query = $"SELECT * from Products WHERE ProductId NOT IN (SELECT ProductId  FROM Purchase  WHERE Id = {Id})";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -193,21 +208,28 @@ namespace DataBase
                 
             }
             user = GetUser(name, password, mail); //קבלת המשתמש שהתווסף כרגע
-            Execute($"INSERT INTO [Purchase] (Id, ProductId) VALUES ('{user.Id}','0')");
             return user;
 
         }
-
+        public static void UpdateSkin(int Id, int skinId)
+        {
+            string query = $"UPDATE Users SET SkinId = {skinId} WHERE Id ={Id}";
+            Execute(query);
+        }
         public static void AddScore(int Id, int score, int highscore)
         {
             string query = $"UPDATE Users SET Score = {score}, HighScore = {highscore} WHERE Id = {Id}";
             Execute(query);
         }
-
-        public enum Type
+        public static void AddProduct(int Id, int productId)
         {
-            User,
-            Email
+            string query = $"INSERT INTO [Purchase] (Id, ProductId) VALUES ('{Id}','{productId}')";
+            Execute(query);
+        }
+        public enum UserRowType
+        {
+            Username,
+            Mail
         }
     }
 }

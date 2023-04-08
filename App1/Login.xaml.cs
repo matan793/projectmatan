@@ -1,4 +1,5 @@
-﻿using Database.Models;
+﻿using Database;
+using Database.Models;
 using DataBase;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,11 @@ namespace SpaceInvaders
     {
         bool us = false;
         bool ps = false;
+        private string varcode;
+
         public Login()
         {
             this.InitializeComponent();
-
-
         }
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
@@ -96,6 +97,47 @@ namespace SpaceInvaders
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+        }
+
+        private void ForgotPass_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+           emailgrid.Visibility = Visibility.Visible;
+           fpassbtn.Visibility = Visibility.Collapsed;
+        }
+
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            emailgrid.Visibility = Visibility.Collapsed;
+            fpassbtn.Visibility = Visibility.Visible;
+        }
+
+        private void continuebtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (SqlHelper.IsExists(SqlHelper.UserRowType.Mail, emailbox.Text))
+            {
+                varcode = EmailManager.GetCode(8);
+                EmailManager.Send(emailbox.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
+                emailgrid.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                emailerr.Text = "there is no user registered on this email plz try again";
+            }
+        }
+
+        private void verifybox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void backbtn2_Click(object sender, RoutedEventArgs e)
+        {
+            verifygrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void continuebtn2_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

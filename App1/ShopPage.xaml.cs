@@ -2,6 +2,7 @@
 using DataBase;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -32,7 +33,8 @@ namespace SpaceInvaders
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Product> skins = SqlHelper.GetShop(Session.User.Id);
+            
+            ObservableCollection<Product> skins = SqlHelper.GetShop(Session.User.Id);
             foreach (Product skin in skins)
             {
                 string str = $"ms-appx:///Assets/Spaceship1/{skin.Skin}.png";
@@ -42,9 +44,19 @@ namespace SpaceInvaders
             }
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void backbtn_Click(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(MainPage));
+        }
 
+        private void buyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(Session.User.Score >= ((Product)mylist.SelectedItem).Price)
+            {
+                Session.User.Score-= ((Product)mylist.SelectedItem).Price;
+                SqlHelper.AddProduct(Session.User.Id, (int)((Product)mylist.SelectedItem).Skin);
+                mylist.Items.Remove(mylist.SelectedItem);
+            }
         }
     }
 }

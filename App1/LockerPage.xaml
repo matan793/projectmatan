@@ -41,15 +41,23 @@
                    VerticalAlignment="Top" Height="252" Width="497" Grid.RowSpan="2" Grid.Row="1"/>
         <Viewbox Grid.Row="2">
             <Grid>
-                <ListView x:Name="mylist" ItemsSource="{Binding Entries}"
-                            ScrollViewer.HorizontalScrollMode="Enabled"
-                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                            ScrollViewer.IsHorizontalRailEnabled="True">
+                <ListView x:Name="mylist"  
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True"
+                  Margin="20">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Product">
+                            <StackPanel>
+                                <Image Source="{x:Bind Image.Source}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
             </Grid>
         </Viewbox>

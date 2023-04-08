@@ -194,6 +194,7 @@ namespace SpaceInvaders
         public void StopGame()
         {
             StopCharacter();
+            this.spaceship.Destroyed = true;
             enemies.Stop();
 
             Session.User.Score += points;

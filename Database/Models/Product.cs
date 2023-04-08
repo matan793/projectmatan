@@ -9,6 +9,16 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Database.Models
 {
+    class MyClass
+    {
+        public MyClass()
+        {
+            Product product= new Product() { 
+                Uid= 1,
+                Skin = Skin.Ship
+            };
+        }
+    }
     public class Product
     {
         public int Uid { get; set; }

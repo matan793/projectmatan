@@ -102,7 +102,8 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="highScoreBtn" 
+        <Button x:Name="highScoreBtn"
+                Style="{StaticResource ButtonStyle1}"
                 Content="Hi-Scores"
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top"
@@ -113,6 +114,7 @@
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="highScoreBtn_Click"
                 />
         <Button x:Name="settingsBtn" 
+                Style="{StaticResource ButtonStyle1}"
                 Content="Settings" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Top"
@@ -160,7 +162,8 @@
                  RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="lockerpbtn_Click" 
                 PointerEntered="playBtn_PointerEntered" PointerExited="playBtn_PointerExited" Margin="33,0,0,26"/>
 
-                <Button x:Name="Quit" 
+            <Button x:Name="Quit" 
+            Style="{StaticResource ButtonStyle1}"
             VerticalContentAlignment="Bottom" Grid.Column="1"
             HorizontalContentAlignment="Center"
             Content=" Quit Game" 
@@ -169,7 +172,8 @@
             FontSize="40"
             HorizontalAlignment="Center"
             Grid.Row="2" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="Quit_Click" Margin="0,310,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="logout" Grid.Column="1"
+            <Button x:Name="logout" Grid.Column="1"
+            Style="{StaticResource ButtonStyle1}"
             VerticalContentAlignment="Bottom"
             HorizontalContentAlignment="Center"
             Content="Logout" 

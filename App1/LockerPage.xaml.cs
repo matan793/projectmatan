@@ -41,7 +41,7 @@ namespace SpaceInvaders
             {
                 string str = $"ms-appx:///Assets/Spaceship1/{skin.Skin}.png";
             
-                mylist.Items.Add(skin.Image);
+                mylist.Items.Add(skin);
                 //mylist.Items.Add(skin.Image);
             }
 
@@ -51,7 +51,8 @@ namespace SpaceInvaders
         {
             if (mylist.SelectedItem != null)
             {
-               Session.User.Skin = (Skin)mylist.SelectedIndex;
+                Session.User.Skin = ((Product)mylist.SelectedItem).Skin;
+                SqlHelper.UpdateSkin(Session.User.Id, (int)Session.User.Skin);
             }
             Frame.Navigate(typeof(MainPage));
         }
