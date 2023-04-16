@@ -98,36 +98,64 @@
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="93*"></RowDefinition>
-            <RowDefinition Height="228*"></RowDefinition>
-            <RowDefinition Height="533*"></RowDefinition>
-            <RowDefinition Height="146*"></RowDefinition>
+            <RowDefinition Height="81*"></RowDefinition>
+            <RowDefinition Height="107*"></RowDefinition>
+            <RowDefinition Height="557*"></RowDefinition>
+            <RowDefinition Height="127*"></RowDefinition>
+            <RowDefinition Height="128*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="698*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-        <Button x:Name="backbtn" 
+        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Center" Height="81" Width="226">
+            <Button x:Name="backbtn" 
                 Style="{StaticResource ButtonStyle1}"
                 Content="Back" 
                 VerticalAlignment="Top"
-                Margin="10,10,0,0" 
-                Grid.Row="0"
+                
                 BorderBrush="Yellow"
                 Foreground="Yellow"
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders"  Height="33" Width="110" Click="backbtn_Click"
                 />
-        <Image x:Name="textBlock"
-                   HorizontalAlignment="Center"
-                   Source="ms-appx:///Assets/logo.png"
-                   VerticalAlignment="Center" Height="252" Width="497" Grid.Row="1"/>
-        <Viewbox Grid.Row="2">
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="0">
+            <Button x:Name="skinBtn" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Stretch"
+                Content="skins" 
+                Grid.Column="0"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="25"
+                VerticalAlignment="Center"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                Height="52" Width="350" Margin="0" BorderThickness="0" RequestedTheme="Light" Click="skinBtn_Click" />
+        </Viewbox>
+        <Viewbox  Grid.Row="1" Grid.Column="1">
+            <Button x:Name="powerUpBtn" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="power up" 
+                 Grid.Column="2"
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="25"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" 
+                Height="52" Width="350" BorderThickness="0" RequestedTheme="Light" Click="powerUpBtn_Click" />
+
+        </Viewbox>
+
+        <Viewbox Grid.Row="2" Grid.ColumnSpan="2">
 
             <ListView x:Name="mylist"  
-                  ScrollViewer.HorizontalScrollMode="Enabled"
-                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                  ScrollViewer.IsHorizontalRailEnabled="True"
-                  Margin="20">
+                      ScrollViewer.HorizontalScrollMode="Enabled"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.IsHorizontalRailEnabled="True"
+                      Margin="20">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal" />
@@ -137,24 +165,36 @@
                     <DataTemplate x:DataType="models:Product">
                         <StackPanel>
                             <TextBlock Name="ItemId"
-                                    Text="{x:Bind Name}"
-                                    Width="200"
-                                    Foreground="Yellow"/>
+                                        Text="{x:Bind Name}"
+                                        Width="200"
+                                        Foreground="Yellow"/>
                             <Image Source="{x:Bind Image.Source}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{x:Bind Price}"
-                                   Width="200"
-                                   Foreground="Yellow"/>
+                                       Width="200"
+                                       Foreground="Yellow"/>
 
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Viewbox>
-        <Viewbox Grid.Row="3">
+        <Viewbox Grid.Row="2" Grid.ColumnSpan="2">
+
+            <ListView x:Name="powerUpList"  Visibility="Collapsed"
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True"
+                  Margin="20" ItemsSource="{Binding entries}">
+            </ListView>
+        </Viewbox>
+        <Viewbox Grid.Row="3" Margin="550,0,200,0">
+            <TextBlock Visibility="Collapsed" x:Name="buyerr" Foreground="Red" Text="you don't have enough score "/>
+        </Viewbox>
+        <Viewbox Grid.Row="4" Grid.ColumnSpan="2">
             <Button  x:Name="buyBtn" 
                 Style="{StaticResource ButtonStyle1}"
                 VerticalContentAlignment="Bottom"
-                Grid.Column="1"
+                
                 HorizontalContentAlignment="Center"
                 Content="Buy" 
                 BorderBrush="Yellow"
@@ -163,6 +203,21 @@
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
                 RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="buyBtn_Click" 
+               />
+        </Viewbox>
+        <Viewbox Grid.Row="4" Grid.ColumnSpan="2">
+            <Button  x:Name="buyshieldBtn" 
+                Visibility="Collapsed"
+                Style="{StaticResource ButtonStyle1}"
+                VerticalContentAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                Content="Buy for 100" 
+                BorderBrush="Yellow"
+                Foreground="Yellow"
+                FontSize="40"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="buyshieldBtn_Click" 
                />
         </Viewbox>
     </Grid>

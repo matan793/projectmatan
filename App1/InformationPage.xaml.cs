@@ -20,31 +20,23 @@ namespace SpaceInvaders
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class InformationPage : Page
     {
-        public Settings()
+        public InformationPage()
         {
             this.InitializeComponent();
         }
 
-        private void settingsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            settingsGrid.Visibility = Visibility.Visible;
-            aboutGrid.Visibility = Visibility.Collapsed;
-            howGrid.Visibility = Visibility.Collapsed;
-         
-            settingsBtn.RequestedTheme = ElementTheme.Dark;
-            aboutBtn.RequestedTheme = ElementTheme.Light;
-            howBtn.RequestedTheme = ElementTheme.Light;
-        }
+     
 
         private void howBtn_Click(object sender, RoutedEventArgs e)
         {
             settingsGrid.Visibility = Visibility.Collapsed;
-            aboutGrid.Visibility = Visibility.Collapsed;
-            howGrid.Visibility = Visibility.Visible;
+            about_name.Visibility = Visibility.Collapsed;
+            about_me.Visibility = Visibility.Collapsed;
+            howGridView.Visibility = Visibility.Visible;
 
-            settingsBtn.RequestedTheme = ElementTheme.Light;
+            RequestedTheme = ElementTheme.Light;
             aboutBtn.RequestedTheme = ElementTheme.Light;
             howBtn.RequestedTheme = ElementTheme.Dark;
         }
@@ -52,10 +44,10 @@ namespace SpaceInvaders
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
             settingsGrid.Visibility = Visibility.Collapsed;
-            aboutGrid.Visibility = Visibility.Visible;
-            howGrid.Visibility = Visibility.Collapsed;
+            about_name.Visibility = Visibility.Visible;
+            about_me.Visibility = Visibility.Visible;
+            howGridView.Visibility = Visibility.Collapsed;
 
-            settingsBtn.RequestedTheme = ElementTheme.Light;
             aboutBtn.RequestedTheme = ElementTheme.Dark;
             howBtn.RequestedTheme = ElementTheme.Light;
         }

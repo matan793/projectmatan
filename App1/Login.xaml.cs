@@ -118,6 +118,7 @@ namespace SpaceInvaders
                 varcode = EmailManager.GetCode(8);
                 EmailManager.Send(emailbox.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
                 emailgrid.Visibility = Visibility.Collapsed;
+                verifygrid.Visibility= Visibility.Visible;
             }
             else
             {
@@ -127,17 +128,18 @@ namespace SpaceInvaders
 
         private void verifybox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if(verifybox.Text == varcode)
+            {
+                Frame.Navigate(typeof(ResetPasswordPage), emailbox.Text);
+            }
         }
 
         private void backbtn2_Click(object sender, RoutedEventArgs e)
         {
             verifygrid.Visibility = Visibility.Collapsed;
+            emailgrid.Visibility = Visibility.Visible;
         }
 
-        private void continuebtn2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

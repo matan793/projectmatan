@@ -28,15 +28,15 @@
                    Grid.Row="0"
                    Foreground="Yellow"
                    FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-
-        <ListView x:Name="Leaderboard" Grid.Row="1" SelectionMode="None"
+        <Viewbox Grid.Row="1" VerticalAlignment="Top">
+        <ListView x:Name="Leaderboard"  SelectionMode="None"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.IsVerticalRailEnabled="True"
                   ScrollViewer.VerticalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.IsHorizontalRailEnabled="True"
-                  Margin="20">
+                  >
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal"  >
@@ -65,7 +65,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        </Viewbox>
 
         <Grid Grid.Row="2" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -114,16 +114,6 @@
                 <ColumnDefinition Width="86*"></ColumnDefinition>
                 <ColumnDefinition Width="39*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" Foreground="Yellow" FontSize="25" Text="Order By"  Width="119" Margin="0,38,0,0"/>
-            <ComboBox x:Name="OrderBy" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Width="120" Height="32" SelectionChanged="Order" >
-                <ComboBoxItem Content="High Score" IsSelected="True"/>
-                <ComboBoxItem Content="Overall Score"/>
-            </ComboBox>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Right" Foreground="Yellow" FontSize="25" Text="Way of order"  Width="146" Margin="0,38,0,0"/>
-            <ComboBox x:Name="WayOfOrder" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Width="120" Height="32" SelectionChanged="Order" >
-                <ComboBoxItem Content="Descending" IsSelected="True"/>
-                <ComboBoxItem Content="Ascending"/>
-            </ComboBox>
         </Grid>
 
 

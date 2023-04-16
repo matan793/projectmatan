@@ -45,13 +45,14 @@ namespace SpaceInvaders
             Frame.Navigate (typeof(HighScores));
         }
 
-        private void settingsBtn_Click(object sender, RoutedEventArgs e)
+        private void informationBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Settings));
+            Frame.Navigate(typeof(InformationPage));
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
+            Session.Reset();
             Frame.Navigate(typeof(Login));
         }
 

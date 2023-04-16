@@ -17,6 +17,7 @@ namespace Database.Models
                 Uid= 1,
                 Skin = Skin.Ship
             };
+            Console.WriteLine(product.Skin);
         }
     }
     public class Product

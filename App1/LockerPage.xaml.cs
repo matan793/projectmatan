@@ -44,7 +44,7 @@ namespace SpaceInvaders
                 mylist.Items.Add(skin);
                 //mylist.Items.Add(skin.Image);
             }
-
+            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

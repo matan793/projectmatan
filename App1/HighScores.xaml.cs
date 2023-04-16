@@ -25,26 +25,13 @@ namespace SpaceInvaders
     /// </summary>
     public sealed partial class HighScores : Page
     {
-        public ObservableCollection<User> Users;
-        private int count = 0;
+        public List<User> Users;
 
         public HighScores()
         {
             this.InitializeComponent();
-            this.Users = SqlHelper.GetUsers();
-            for (int i = 0; i < Users.Count - 1; i++)
-            {
-                for (int j = 0; j < Users.Count - i - 1; j++)
-                {
-                    if (Users[j].HighScore < Users[j + 1].HighScore)
-                    {
-                        User temp = Users[j];
-                        Users[j] = Users[j + 1];
-                        Users[j + 1] = temp;
-                    }
-                }
-            }
-
+            this.Users = SqlHelper.GetScores();
+          
             Leaderboard.ItemsSource = Users;
         }
 

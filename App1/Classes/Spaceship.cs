@@ -62,7 +62,7 @@ namespace SpaceInvaders
         }
         public  void defence()
         {
-            defendsec = 10;
+            defendsec += 10;
 
             this.defendtimer?.Stop();
             this.defendtimer = new DispatcherTimer();

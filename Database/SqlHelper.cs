@@ -32,10 +32,10 @@ namespace DataBase
                 command.ExecuteNonQuery();
             }
         }
-        public static ObservableCollection<User> GetUsers()
+        public static List<User> GetScores()
         {
             string query = "SELECT Username, Score, HighScore FROM Users ORDER BY HighScore DESC";
-            ObservableCollection<User> users = new ObservableCollection<User>();
+            List<User> users = new List<User>();
             try
             {
                 using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -67,7 +67,7 @@ namespace DataBase
             }
         }
         public static User GetUser(string name, string password, string mail)
-        {   
+        {
             string str = dbpath;
             string query = $"SELECT * FROM Users WHERE Username='{name}' AND Password='{password}' AND Mail='{mail}'";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -83,17 +83,50 @@ namespace DataBase
                         Id = reader.GetInt32(0),
                         Username = reader.GetString(1),
                         Password = reader.GetString(2),
-                        Mail= reader.GetString(3),
+                        Mail = reader.GetString(3),
                         Score = reader.GetInt32(4),
                         HighScore = reader.GetInt32(5),
-                        Skin = (Skin)reader.GetInt32(6)
+                        Skin = (Skin)reader.GetInt32(6),
+                        ShieldNum = reader.GetInt32(7)
                     };
                     return user;
                 }
+            }
+            return null; //המשתמש לא קיים
+
+
+        }
+
+        public static User GetUserByRow(UserRowType type, string value)
+        {
+            string str = dbpath;
+            string query = $"SELECT * FROM Users WHERE {type} = '{value}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                {
+                    reader.Read();
+                    User user = new User
+                    {
+                        Id = reader.GetInt32(0),
+                        Username = reader.GetString(1),
+                        Password = reader.GetString(2),
+                        Mail = reader.GetString(3),
+                        Score = reader.GetInt32(4),
+                        HighScore = reader.GetInt32(5),
+                        Skin = (Skin)reader.GetInt32(6),
+                        ShieldNum = reader.GetInt32(7)
+                    };
+                    return user;
                 }
+            }
             return null; //המשתמש לא קיים
         }
-        
+
+
         public static bool IsExists(UserRowType type, string value)
         {
             string query = $"SELECT * from Users WHERE {type} = '{value}'";
@@ -127,7 +160,8 @@ namespace DataBase
                         Mail = reader.GetString(3),
                         Score = reader.GetInt32(4),
                         HighScore = reader.GetInt32(5),
-                        Skin = (Skin)reader.GetInt32(6)
+                        Skin = (Skin)reader.GetInt32(6),
+                        ShieldNum = reader.GetInt32(7),
                     };
                     return user;
                 }
@@ -226,8 +260,28 @@ namespace DataBase
             string query = $"INSERT INTO [Purchase] (Id, ProductId) VALUES ('{Id}','{productId}')";
             Execute(query);
         }
+        public static void UpdatePassword(int Id, string newpass)
+        {
+            string query = $"UPDATE Users SET Password = '{newpass}' WHERE Id = '{Id}'";
+            Execute(query);
+
+        }
+
+        public static void AddShield(int id)
+        {
+            string query = $"UPDATE Users SET ShieldNum = ShieldNum+1 WHERE Id = {id}";
+            Execute(query);
+        }
+
+        public static void SubtractShield(int id)
+        {
+            string query = $"UPDATE Users SET ShieldNum = ShieldNum-1 WHERE Id = {id}";
+            Execute(query);
+        }
+
         public enum UserRowType
         {
+            Id,
             Username,
             Mail
         }

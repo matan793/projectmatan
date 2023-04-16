@@ -31,6 +31,7 @@ namespace SpaceInvaders
         private uint cooldown;
         protected DispatcherTimer GameTimer;//הטיימר שאחראי על תנועת הדמות
         private int speed;
+        
         public int DefendTime { get; private set; }
         public Manager(Canvas Arena)
         {
@@ -176,20 +177,20 @@ namespace SpaceInvaders
                         cooldown= 0;
                     }
                     break;
-                case VirtualKey.F: 
-                        this.spaceship.defence();
-                    break;
-                        
-                 
-                    
-
-                }
+            }
           
             
         }
-        public void defend()
+        public bool defend()
         {
-            this.spaceship.defence();
+            if(Session.User.ShieldNum > 0)
+            {
+                this.spaceship.defence();
+                Session.User.ShieldNum--;
+                SqlHelper.SubtractShield(Session.User.Id);
+                return true;
+            }
+            return false;
         }
         public void StopGame()
         {

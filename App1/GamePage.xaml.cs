@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -62,15 +63,29 @@ namespace SpaceInvaders
            
             this.myManager = new Manager(canvas);
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            Window.Current.CoreWindow.KeyDown +=  DefendKeyDown;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             this.myManager.addpoints += AddPoints;
             this.myManager.removelifie += RemoveLife;
             this.myManager.updateDefendTime += MyManager_updateDefendTime;
+            Canvas.SetTop(gameovergrid, canvas.Height/3);
+            Canvas.SetLeft(gameovergrid, canvas.Width/3);
+
+            NumOfShieldTxt.Text = Session.User.ShieldNum.ToString();
+        }
+
+        private void DefendKeyDown(CoreWindow sender, KeyEventArgs args)
+        {
+            if(args.VirtualKey == Windows.System.VirtualKey.F)
+            {
+                if (myManager.defend())
+                    NumOfShieldTxt.Text = Session.User.ShieldNum.ToString();
+            }
         }
 
         private void MyManager_updateDefendTime(object sender, EventArgs e)
         {
-            defendtimetext.Text = this.myManager.DefendTime.ToString();
+            defendtimetext.Text = "shield time: " + this.myManager.DefendTime.ToString();
         }
 
         private void RemoveLife(object sender, EventArgs e)

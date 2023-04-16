@@ -16,6 +16,7 @@ namespace Database.Models
         public int Score { get; set; }
         public int HighScore { get; set; }
         public Skin Skin { get; set; }
+        public int ShieldNum { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)
@@ -28,6 +29,6 @@ namespace Database.Models
     {
         Default,
         Ship,
-        mirav
+        Supership
     }
 }

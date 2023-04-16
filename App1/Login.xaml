@@ -59,7 +59,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="1" FontSize="39" Text="enter your email:" VerticalAlignment="Center" Margin="10,0,-10,0" FontFamily="Space Invaders"/>
-            <TextBox HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Width="300" Height="70" MaxLength="8" FontSize="39" FontFamily="Space Invaders" Name="emailbox" />
+            <TextBox HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Width="300" Height="70" FontSize="39" FontFamily="Space Invaders" Name="emailbox" />
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Foreground="Red"  x:Name="emailerr" VerticalAlignment="Bottom" FontSize="50" Text=""  HorizontalAlignment="Center" />
             <Button x:Name="backbtn"
                 Grid.Row="2"
@@ -92,7 +92,7 @@
                 CornerRadius="0,0,100,0"
                 RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Background="#7F000000"/>
         </Grid>
-        <Grid Grid.ColumnSpan="2" x:Name="verifygrid"  CornerRadius="100" Visibility="Visible" Width="790" Height="608" Background="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Grid.ColumnSpan="2" x:Name="verifygrid"  CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -120,22 +120,7 @@
                 VerticalAlignment="Bottom"
                 CornerRadius="0,0,0,100"
                 RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Background="#7F000000"/>
-            <Button x:Name="continuebtn2"
-                Grid.Row="2"
-                Grid.Column="1"
-                PointerEntered="TextBlock_PointerEntered"
-                PointerExited="TextBlock_PointerExited"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                Content="continue" 
-                BorderBrush="Yellow"
-                Foreground="Yellow"
-                Click="continuebtn2_Click"
-                FontSize="40" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                CornerRadius="0,0,100,0"
-                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Background="#7F000000" Margin="0,126,0,0"/>
+           
         </Grid>
     </Grid>
 </Page>
