@@ -105,19 +105,6 @@
 
 
         </Grid>
-        <Grid Width="500" HorizontalAlignment="Right" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="19*"></RowDefinition>
-                <RowDefinition Height="131*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="86*"></ColumnDefinition>
-                <ColumnDefinition Width="39*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-        </Grid>
-
-
-
 
     </Grid>
 </Page>
