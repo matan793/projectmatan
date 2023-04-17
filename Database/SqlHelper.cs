@@ -96,6 +96,20 @@ namespace DataBase
 
 
         }
+        public static int GetScore(int Id)
+        {
+            string str = dbpath;
+            string query = $"SELECT ShieldNum FROM Users WHERE Id='{Id}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)//האםח יש נתונים
+                    return reader.GetInt32(0);
+            }
+            return -1;
+        }
 
         public static User GetUserByRow(UserRowType type, string value)
         {
