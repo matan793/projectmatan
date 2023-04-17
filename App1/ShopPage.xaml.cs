@@ -97,6 +97,7 @@ namespace SpaceInvaders
 
         private void powerUpBtn_Click(object sender, RoutedEventArgs e)
         {
+
             mylist.Visibility = Visibility.Collapsed;
             powerUpList.Visibility = Visibility.Visible;
 
@@ -116,6 +117,7 @@ namespace SpaceInvaders
                 Session.User.Score -= 100;
                 SqlHelper.AddShield(Session.User.Id);
                 SqlHelper.AddScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
+                Session.User.ShieldNum++;
                 buyerr.Visibility = Visibility.Collapsed;
 
             }

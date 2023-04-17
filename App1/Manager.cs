@@ -198,6 +198,7 @@ namespace SpaceInvaders
             this.spaceship.Destroyed = true;
             enemies.Stop();
 
+
             Session.User.Score += points;
             Session.User.HighScore = points > Session.User.HighScore ? points : Session.User.HighScore;
 
