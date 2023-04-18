@@ -200,7 +200,7 @@ namespace SpaceInvaders
             Session.User.Score += points;
             Session.User.HighScore = points > Session.User.HighScore ? points : Session.User.HighScore;
 
-            SqlHelper.AddScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
+            SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
         }
         internal void StopCharacter()
 

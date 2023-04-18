@@ -9,17 +9,9 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Database.Models
 {
-    class MyClass
-    {
-        public MyClass()
-        {
-            Product product= new Product() { 
-                Uid= 1,
-                Skin = Skin.Ship
-            };
-            Console.WriteLine(product.Skin);
-        }
-    }
+    /// <summary>
+    /// מחלקה אשר מייצגת מוצר אשר משומש בחנות ובמחסן
+    /// </summary>
     public class Product
     {
         public int Uid { get; set; }

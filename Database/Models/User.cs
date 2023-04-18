@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Database.Models
 {
-    public class User : INotifyPropertyChanged
+    /// <summary>
+    /// מחלקה המייצגת משתמש
+    /// </summary>
+    public class User 
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -17,14 +20,10 @@ namespace Database.Models
         public int HighScore { get; set; }
         public Skin Skin { get; set; }
         public int ShieldNum { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Skin
     {
         Default,

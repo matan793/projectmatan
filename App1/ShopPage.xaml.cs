@@ -36,7 +36,7 @@ namespace SpaceInvaders
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
-            ObservableCollection<Product> skins = SqlHelper.GetShop(Session.User.Id);
+            List<Product> skins = SqlHelper.GetShop(Session.User.Id);
             foreach (Product skin in skins)
             {
                 string str = $"ms-appx:///Assets/Spaceship1/{skin.Skin}.png";
@@ -63,7 +63,7 @@ namespace SpaceInvaders
             {
                 Session.User.Score -= ((Product)mylist.SelectedItem).Price;
                 SqlHelper.AddProduct(Session.User.Id, (int)((Product)mylist.SelectedItem).Skin);
-                SqlHelper.AddScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
+                SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
                 mylist.Items.Remove(mylist.SelectedItem);
                 buyerr.Visibility = Visibility.Collapsed;
 
@@ -116,7 +116,7 @@ namespace SpaceInvaders
             {
                 Session.User.Score -= 100;
                 SqlHelper.AddShield(Session.User.Id);
-                SqlHelper.AddScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
+                SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
                 Session.User.ShieldNum++;
                 buyerr.Visibility = Visibility.Collapsed;
 

@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace Database
 {
+    /// <summary>
+    /// מחלקה המנהלת שליחת מיילים למשתמשים
+    /// </summary>
     public class EmailManager
     {
+        /// <summary>
+        /// פעולה אשר מחזירה קוד רנדומלי באורך length 
+        /// </summary>
+        /// <param name="length">אורך הקוד</param>
+        /// <returns>קוד באורך length</returns>
         public static string GetCode(int length)
         {
 
@@ -23,6 +31,12 @@ namespace Database
             }
             return sb.ToString();
         }
+        /// <summary>
+        /// פעולה אשר שולחת מייל
+        /// </summary>
+        /// <param name="email">המייל אליו לשלוח</param>
+        /// <param name="subject">כותרת המייל</param>
+        /// <param name="body">גוך/תוכן המייל</param>
         public static void Send(string email, string subject, string body)
         {
             SmtpClient Client = new SmtpClient()
@@ -33,12 +47,12 @@ namespace Database
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 Credentials = new NetworkCredential()
                 {
-                    UserName = "fackmirav@gmail.com",
-                    Password = "tbhbucijdxkwormm"
+                    UserName = "theworldofpc89@gmail.com",
+                    Password = "zmotyyjdzpetkmsi"
                 }
 
             };
-            MailAddress FromEmail = new MailAddress("fackmirav@gmail.com", "‪mirav‬‏");
+            MailAddress FromEmail = new MailAddress("theworldofpc89@gmail.com", "SpaceShooter");
             string ToEmail = email;
             MailMessage Message = new MailMessage()
             {
@@ -52,6 +66,11 @@ namespace Database
             Client.Send(Message);
 
         }
+        /// <summary>
+        /// פעולה אשר בודקת אם המייל תקין
+        /// </summary>
+        /// <param name="mail">מייל אשר אותו רוצים לבדוק</param>
+        /// <returns>אמת אם המייל תקין שקר אם המייל אינו תקין</returns>
         public static bool IsCurrect(string mail)
         {
             if (mail.IndexOf("@") < 0)
