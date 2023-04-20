@@ -64,20 +64,19 @@
             <TextBlock Grid.Row="1" Text="press f" FontSize="28" Foreground="White"></TextBlock>
 
         </Grid>
-        <Viewbox Grid.Row="0" Grid.Column="0">
-            <Canvas x:Name="canvas" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="1957" Height="1080" Grid.RowSpan="2" Grid.ColumnSpan="2">
+
+            <Canvas  x:Name="canvas" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="1957" Height="1080" Grid.RowSpan="2" Grid.ColumnSpan="2">
                 <Grid  x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="#C1FFFF00">
                     <TextBlock Text="Game Over" FontSize="60" Margin="200,30,0,496" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
                     <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240,120,45,439" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
                     <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0" Click="Button_Click_1"  />
-                    <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
+                    <Button Content="Home"  VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
                 </Grid>
 
-                <Canvas.Background>
+                <!--<Canvas.Background>
                     <ImageBrush Stretch="Fill"/>
-                </Canvas.Background>
+                </Canvas.Background>-->
             </Canvas>
-        </Viewbox>
         <!--<StackPanel x:Name="gameOverPanel" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="5" Background="Black" BorderBrush="Yellow" Visibility="Collapsed">
             <TextBlock x:Name="gameOverText" Text="Game Over" Margin="20" Foreground="Yellow" FontSize="70" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
             <TextBlock x:Name="finalScoreText" Text="Score" Margin="0" Foreground="Yellow" HorizontalAlignment="Center" FontSize="20" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />

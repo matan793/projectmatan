@@ -30,6 +30,14 @@ namespace SpaceInvaders
         protected DispatcherTimer moveTimer;//הטיימר שאחראי על תנועת הדמות
         protected  DispatcherTimer ShootTimer;//הטיימר שאחראי על תנועת הדמות
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numrow"></param>
+        /// <param name="numcollum"></param>
+        /// <param name="speed"></param>
+        /// <param name="arena"></param>
+        /// <param name="level"></param>
         public Enemies(int numrow, int numcollum, int speed, Canvas arena, int level)
         {
 

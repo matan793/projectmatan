@@ -421,8 +421,9 @@ namespace DataBase
                 throw new Exception(query, e);
 
             }
-        }
-
+        }        /// <summary>
+        /// אינם המייצג את עמודות הטבלה של המשתמשים
+        /// </summary>
         public enum UserRowType
         {
             Id,
