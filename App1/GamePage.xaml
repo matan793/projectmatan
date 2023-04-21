@@ -6,8 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="Page_Loaded"
-    Width="1920"
-    Height="1080"
    >
 
     <Grid x:Name="grid">
@@ -42,10 +40,10 @@
             </Viewbox>
             <Viewbox HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Image x:Name="life1" Source="ms-appx:///Assets/Spaceship1/Default.png" Height="30" Width="30" Margin="5,0"/>
-                    <Image x:Name="life2" Source="ms-appx:///Assets/Spaceship1/Default.png" Height="30" Width="30" Margin="5,0"/>
-                    <Image x:Name="life3" Source="ms-appx:///Assets/Spaceship1/Default.png" Height="30" Width="30" Margin="5,0,0,0"/>
-                    <TextBlock x:Name="livesText" FontSize="20" Width="auto" Text="LIVES" Canvas.ZIndex="9" Margin="25,0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="auto" Foreground="Yellow"
+                    <Image x:Name="life1" Source="ms-appx:///Assets/Spaceship1/Default.png"/>
+                    <Image x:Name="life2" Source="ms-appx:///Assets/Spaceship1/Default.png"/>
+                    <Image x:Name="life3" Source="ms-appx:///Assets/Spaceship1/Default.png"/>
+                    <TextBlock x:Name="livesText" FontSize="20" Text="LIVES" Canvas.ZIndex="9"  VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="Yellow"
                 FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
                 </StackPanel>
             </Viewbox>
@@ -64,20 +62,20 @@
             <TextBlock Grid.Row="1" Text="press f" FontSize="28" Foreground="White"></TextBlock>
 
         </Grid>
-        <Viewbox Grid.Row="0" Grid.Column="0">
-            <Canvas x:Name="canvas" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="1957" Height="1080" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Grid  x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="#C1FFFF00">
-                    <TextBlock Text="Game Over" FontSize="60" Margin="200,30,0,496" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                    <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30" Margin="240,120,45,439" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
-                    <Button Content="Try Again" Height="65" Width="181" Margin="138,0,0,0" Click="Button_Click_1"  />
-                    <Button Content="Home" Margin="419,269,0,0" VerticalAlignment="Top" Height="65" Width="205" Click="Button_Click" />
+        
+        <Canvas x:Name="canvas" Grid.Row="0" >
+          
+                <Grid  x:Name="gameovergrid" Canvas.ZIndex="10" CornerRadius="100" Visibility="Collapsed" Background="#C1FFFF00">
+                    <TextBlock Text="Game Over" FontSize="60" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                    <TextBlock x:Name="overscore" Text="Your scoore is: " FontSize="30"  FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+                    <Button Content="Try Again" Click="Button_Click_1"  />
+                    <Button Content="Home" Width="205" Click="Button_Click" />
                 </Grid>
-
-                <Canvas.Background>
+            <!--<Canvas.Background>
                     <ImageBrush Stretch="Fill"/>
-                </Canvas.Background>
+                </Canvas.Background>-->
             </Canvas>
-        </Viewbox>
+
         <!--<StackPanel x:Name="gameOverPanel" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="5" Background="Black" BorderBrush="Yellow" Visibility="Collapsed">
             <TextBlock x:Name="gameOverText" Text="Game Over" Margin="20" Foreground="Yellow" FontSize="70" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />
             <TextBlock x:Name="finalScoreText" Text="Score" Margin="0" Foreground="Yellow" HorizontalAlignment="Center" FontSize="20" FontFamily="Fonts/space_invaders.ttf#Space Invaders" />

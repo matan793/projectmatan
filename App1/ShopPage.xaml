@@ -108,7 +108,7 @@
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Center" Height="81" Width="226">
+        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Center">
             <Button x:Name="backbtn" 
                 Style="{StaticResource ButtonStyle1}"
                 Content="Back" 

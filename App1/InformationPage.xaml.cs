@@ -31,7 +31,7 @@ namespace SpaceInvaders
 
         private void howBtn_Click(object sender, RoutedEventArgs e)
         {
-            settingsGrid.Visibility = Visibility.Collapsed;
+            
             about_name.Visibility = Visibility.Collapsed;
             about_me.Visibility = Visibility.Collapsed;
             howGridView.Visibility = Visibility.Visible;
@@ -43,7 +43,7 @@ namespace SpaceInvaders
 
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
-            settingsGrid.Visibility = Visibility.Collapsed;
+           
             about_name.Visibility = Visibility.Visible;
             about_me.Visibility = Visibility.Visible;
             howGridView.Visibility = Visibility.Collapsed;

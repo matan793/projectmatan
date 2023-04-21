@@ -23,20 +23,21 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="698*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
+        <Viewbox Grid.Row="0" HorizontalAlignment="Left">
         <Button x:Name="Back" 
                 Content="Back" 
                 VerticalAlignment="Top"
-                Margin="10,10,0,0" 
-                Grid.Row="0"
                 BorderBrush="Yellow"
                 Foreground="Yellow"
-                FontFamily="Fonts/space_invaders.ttf#Space Invaders"  Height="33" Width="110" Click="Back_Click"
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders"  Click="Back_Click"
                 />
+        </Viewbox>
+        <Viewbox Grid.Row="1">
         <Image x:Name="textBlock"
                    HorizontalAlignment="Center"
                    Source="ms-appx:///Assets/logo.png"
-                   VerticalAlignment="Top" Height="252" Width="497" Grid.RowSpan="2" Grid.Row="1"/>
+                   VerticalAlignment="Top"/>
+        </Viewbox>
         <Viewbox Grid.Row="2">
             <Grid>
                 <ListView x:Name="mylist"  
