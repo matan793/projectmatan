@@ -11,7 +11,7 @@ namespace SpaceInvaders
     {
         public static User User { get;  set; }
 
-        public static void Reset()
+        public static void Reset() 
         {
             Session.User = null;
            
