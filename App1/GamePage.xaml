@@ -64,12 +64,10 @@
         </Grid>
 
         <Canvas  Grid.Row="0" Grid.Column="0" x:Name="canvas">
-
-            <Grid x:Name="gameovergrid" Canvas.ZIndex="10" Width="600" Height="600" CornerRadius="100" Visibility="Collapsed"  Background="#C1FFFF00" Canvas.Left="378" Canvas.Top="141">
-                <!--<Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+            
+            <Grid x:Name="gameovergrid" Canvas.ZIndex="10" Width="600" Height="600" CornerRadius="100" Visibility="Visible"  Background="#C1FFFF00" Canvas.Left="378" Canvas.Top="141">
+                <Grid.RowDefinitions>
+                    
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -99,26 +97,20 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>-->
+                </Grid.ColumnDefinitions>
                 <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="15" Grid.RowSpan="2">
                 <TextBlock  Text="Game Over" FontSize="60"  FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
                 </Viewbox>
-                <Viewbox Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="10" Grid.RowSpan="1">
+                <Viewbox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="1">
                 <TextBlock  x:Name="overscore" Text="Your scoore is: " FontSize="30" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
                 </Viewbox>
-                <Viewbox Stretch="Fill" Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                <Viewbox Stretch="Fill" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
                 <Button  Content="Try Again"  Click="Button_Click_1"  />
                 </Viewbox>
-                <Viewbox Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                <Viewbox Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="2">
                 <Button Content="Home"  VerticalAlignment="Top"  Click="Button_Click" />
                 </Viewbox>
             </Grid>
-
             <Canvas.Background>
                     <ImageBrush Stretch="Fill"/>
                 </Canvas.Background>
