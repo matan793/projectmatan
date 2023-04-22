@@ -28,7 +28,11 @@ namespace SpaceInvaders
         }
 
      
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כתור האיך לשחק
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void howBtn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -41,6 +45,11 @@ namespace SpaceInvaders
             howBtn.RequestedTheme = ElementTheme.Dark;
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על הכפתור מידע עליי
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
            
@@ -52,11 +61,20 @@ namespace SpaceInvaders
             howBtn.RequestedTheme = ElementTheme.Light;
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void settingsBackBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
-
+        /// <summary>
+        /// פעולה אשר נקרא כאשר השחקן לוחץ על הכפתור משחק חדש
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));

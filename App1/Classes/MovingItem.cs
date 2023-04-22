@@ -10,6 +10,9 @@ using Windows.Foundation;
 
 namespace SpaceInvaders
 {
+    /// <summary>
+    /// מחלקה המייצגת אובייקט שזז
+    /// </summary>
     internal class MovingItem
     {
         protected double placeX; //מיקום אופקי
@@ -29,6 +32,14 @@ namespace SpaceInvaders
         public double SpeedY { get { return speedY; } set { speedY = value; } }
         public Image Image { get { return image; } set { image = value; } }
         public bool Destroyed { get { return destroyed; } set { destroyed = value; } }
+
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
+        /// <param name="placeX">מיקום אופקי</param>
+        /// <param name="placeY">מיקום אנכי</param>
+        /// <param name="arena">זירת המשחק</param>
+        /// <param name="size">גודל</param>
         public MovingItem(double placeX, double placeY, Canvas arena, int size)
         {
             this.placeX = placeX;
@@ -50,9 +61,17 @@ namespace SpaceInvaders
             this.moveTimer.Start();
             this.moveTimer.Tick += MoveTimer_Tick;
         }
-
+        /// <summary>
+        /// פעולה אשר מחזירה אובייקט מסוג מלבן שמייצג את היקפו של האובייקט
+        /// </summary>
+        /// <returns></returns>
         public virtual Rect GetRectangle() => new Rect((int)this.placeX + 2, (int)this.placeY, (int)this.Image.Height, (int)this.Image.Width);
 
+        /// <summary>
+        /// פעולה אשר נקראת כל אלפית שנייה ואחראית על לבדוק את גבולות האובייקט
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void MoveTimer_Tick(object sender, object e)
         {
             
@@ -77,7 +96,9 @@ namespace SpaceInvaders
             }
 
         }
-
+        /// <summary>
+        /// פעולה אשר גורמת לאובייקט לזוז ימינה
+        /// </summary>
         public void GoRight()
         {
             if (!destroyed)
@@ -87,6 +108,9 @@ namespace SpaceInvaders
 
 
         }
+        /// <summary>
+        /// פעולה אשר גורמת לאובייקט לזוז שמאלה
+        /// </summary>
         public void GoLeft()
         {
             if (!destroyed)
@@ -95,7 +119,9 @@ namespace SpaceInvaders
 
 
         }
-
+        /// <summary>
+        /// פעולה אשר גורמת לאובייקט לעזור
+        /// </summary>
         public virtual void Stop()
         {
 

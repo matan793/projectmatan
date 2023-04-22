@@ -27,12 +27,18 @@ namespace SpaceInvaders
     /// </summary>
     public sealed partial class ShopPage : Page
     {
-        
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public ShopPage()
         {
             this.InitializeComponent();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר העמוד נטען
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -51,12 +57,20 @@ namespace SpaceInvaders
             powerUpList.Items.Add(powerUpimg);
             
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backbtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור קניית הסקין
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buyBtn_Click(object sender, RoutedEventArgs e)
         {
             if (mylist.SelectedItem != null && Session.User.Score >= ((Product)mylist.SelectedItem).Price)
@@ -79,7 +93,11 @@ namespace SpaceInvaders
                 buyerr.Visibility = Visibility.Visible;
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור החלפת הצפייה לסקינים
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void skinBtn_Click(object sender, RoutedEventArgs e)
         {
             mylist.Visibility = Visibility.Visible;
@@ -94,7 +112,11 @@ namespace SpaceInvaders
             buyBtn.Visibility = Visibility.Visible;
             buyshieldBtn.Visibility = Visibility.Collapsed;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור ההחלפה למגן
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void powerUpBtn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -109,7 +131,11 @@ namespace SpaceInvaders
             buyBtn.Visibility= Visibility.Collapsed;
             buyshieldBtn.Visibility= Visibility.Visible;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור קניית המגן
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buyshieldBtn_Click(object sender, RoutedEventArgs e)
         {
             if (powerUpList.SelectedItem != null && Session.User.Score >= 100)

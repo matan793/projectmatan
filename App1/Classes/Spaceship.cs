@@ -10,11 +10,9 @@ using Windows.UI.Xaml;
 
 namespace SpaceInvaders
 {
-    //public enum StateType
-    //{
-    //    idleLeft, idleRight, runLeft, runRight, jumpLeft, jumpRight, dieLeft, dieRight, attackLeft, attackRight,
-    //    glideLeft, glideRight, slideLeft, slideRight, throwLeft, throwRight, climbUp, jumpAttackLeft, jumpAttackRight, jumpThrowLeft, jumpThrowRight
-    //}
+    /// <summary>
+    /// מחלקה המייצגת חללית(שחקן).  
+    /// </summary>
     internal class Spaceship : MovingItem
     {
         public event EventHandler Touch;
@@ -23,6 +21,14 @@ namespace SpaceInvaders
         private int defendsec = 0;
         public int Defendsec { get { return defendsec; } }
         DispatcherTimer defendtimer;
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
+        /// <param name="placeX">מיקום אופקי</param>
+        /// <param name="placeY">מיקום אנכי</param>
+        /// <param name="arena">זירת המשחק</param>
+        /// <param name="size">גודל</param>
+        /// <param name="skin">סקין(הנראות של השחקן)כ</param>
         public Spaceship(double placeX, double placeY, Canvas arena, int size, Skin skin) : base(placeX, placeY, arena, size)
         {
             this.image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Spaceship1/{skin}.png"));
@@ -30,6 +36,11 @@ namespace SpaceInvaders
         }
 
 
+        /// <summary>
+        /// פעולה אשר נקראת כל אלפית שנייה ואחראית על לבדוק את גבולות השחקן והכדורים
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void MoveTimer_Tick(object sender, object e)
         {
             
@@ -60,6 +71,9 @@ namespace SpaceInvaders
             
 
         }
+        /// <summary>
+        /// פעולה אשר גורמת לשחקן להיות חסין ב10 שניות יותר
+        /// </summary>
         public  void defence()
         {
             defendsec += 10;
@@ -72,7 +86,11 @@ namespace SpaceInvaders
 
 
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל שנייה ומורידה שנייה מהזמן של החסינות
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Defendtimer_Tick(object sender, object e)
         {
             defendsec--;
@@ -80,7 +98,9 @@ namespace SpaceInvaders
                 defendtimer.Stop();
 
         }
-
+        /// <summary>
+        /// פעולה אשר גורמת לשחקן לירות
+        /// </summary>
         internal void Shoot()
         {
             Bullet b = new Bullet(this.placeX+50, this.placeY, arena, 10, true, 0);
@@ -88,30 +108,3 @@ namespace SpaceInvaders
         }
     }
 }
-/// <summary>
-/// הפעולה תתבצע אלף פעמים בשנייה אחת
-/// </summary>
-/// <summary>
-/// הפעולה  מתאמת בין מצב הדמות לבין המראה שלה
-/// </summary>
-//private void MatchGifToState()
-//{
-//    switch (this.state)
-//    {
-//        case StateType.idleRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaIdleRight.gif")); break;
-//        case StateType.idleLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaIdleLeft.gif")); break;
-//        case StateType.runRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaRunRight.gif")); break;
-//        case StateType.runLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaRunLeft.gif")); break;
-//        case StateType.attackRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaAttackRight.gif")); break;
-//        case StateType.attackLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaAttackLeft.gif")); break;
-//        case StateType.jumpRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaJumpRight.gif")); break;
-//        case StateType.jumpLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaJumpLeft.gif")); break;
-//        case StateType.throwRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaThrowRight.gif")); break;
-//        case StateType.throwLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaThrowLeft.gif")); break;
-//        case StateType.dieRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaDieRight.gif")); break;
-//        case StateType.dieLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaDieLeft.gif")); break;
-//        case StateType.climbUp: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaClimb.gif")); break;
-//        case StateType.glideRight: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaGlideRight.gif")); break;
-//        case StateType.glideLeft: this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Ninja/NinjaGlideLeft.gif")); break;
-//    }
-//}

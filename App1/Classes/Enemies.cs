@@ -11,6 +11,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace SpaceInvaders
 {
+    /// <summary>
+    /// מחלקה המייצגת קבוצה של אוייבים אשר מסוכרנים אחד עם השני
+    /// </summary>
     internal class Enemies
     {
         private int speed;
@@ -31,13 +34,13 @@ namespace SpaceInvaders
         protected  DispatcherTimer ShootTimer;//הטיימר שאחראי על תנועת הדמות
 
         /// <summary>
-        /// 
+        /// פעולה בונה
         /// </summary>
-        /// <param name="numrow"></param>
-        /// <param name="numcollum"></param>
-        /// <param name="speed"></param>
-        /// <param name="arena"></param>
-        /// <param name="level"></param>
+        /// <param name="numrow">מס שורות</param>
+        /// <param name="numcollum">מס עמודות</param>
+        /// <param name="speed">מהירות של כל האוייבים</param>
+        /// <param name="arena">זירת המשחק</param>
+        /// <param name="level">שלב</param>
         public Enemies(int numrow, int numcollum, int speed, Canvas arena, int level)
         {
 
@@ -62,6 +65,10 @@ namespace SpaceInvaders
             this.count = enemies.Length;
         }
 
+        /// <summary>
+        /// פעולה מייצרת מערת של אוייבים ומקנה את כמות האוייבים של כל רמה לפי השלב
+        /// </summary>
+        /// <param name="level">השלב שבו השחקן משחק</param>
         private void GenerateEnemiesByLevels(int level)
         {
             Random rnd = new Random();
@@ -113,11 +120,20 @@ namespace SpaceInvaders
             }
         }
 
+        /// <summary>
+        /// פעולה אשר מוחקת את האובייקט של האוייב
+        /// </summary>
+        /// <param name="e">האוייב</param>
         public void Remove(ref Enemy e)
         {
             
             e = null;
         }
+        /// <summary>
+        /// פעולה הנקראת כל 2 שניות ואחראית על גרימת ירייה של אויב רנדומלי
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShootTimer_Tick(object sender, object e)
         {
             Random rnd = new Random();
@@ -125,6 +141,11 @@ namespace SpaceInvaders
             int j = rnd.Next(0, enemies.GetLength(1));
             enemies[i, j].Shoot();
         }
+        /// <summary>
+        /// פעולה הנקראת כל אלפית שנייה ואחרית על הזזת האוייבים קכבוצה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void MoveTimer_Tick(object sender, object e)
         {
@@ -173,6 +194,11 @@ namespace SpaceInvaders
         //    }
             
         //}
+
+        /// <summary>
+        /// פעולה אשר אחראיתת על השמת המהירות לכל האוייבים
+        /// </summary>
+        /// <param name="speed"></param>
         private void SetSpeed(double speed)
         {
             for (int i = 0; i < enemies.GetLength(0); i++)
@@ -184,6 +210,9 @@ namespace SpaceInvaders
             }
         }
 
+        /// <summary>
+        /// פעולה אשר עוצרת את כל האוייבים
+        /// </summary>
         public void Stop()
         {
             ShootTimer.Stop();
@@ -195,15 +224,19 @@ namespace SpaceInvaders
                 }
             }
         }
-
-        internal void Add(int r, int c)
+        /// <summary>
+        /// פעולה אשר מוסיפה אוייב למיקום שניתן לפעולה
+        /// </summary>
+        /// <param name="row">מיקום לפי שורה</param>
+        /// <param name="collum">מיקום לפי עמודה</param>
+        internal void Add(int row, int collum)
         {
-            enemies = new GreenEnemy[r, c];
+            enemies = new GreenEnemy[row, collum];
             int ex = 300;
             int ey = 200;
-            for (int y = 0; y < r; y++)
+            for (int y = 0; y < row; y++)
             {
-                for (int x = 0; x < c; x++)
+                for (int x = 0; x < collum; x++)
                 {
                     enemies[y, x] = new GreenEnemy(ex, ey, 20,arena, 50);
                     ex += 55;
@@ -214,10 +247,19 @@ namespace SpaceInvaders
             this.count = enemies.Length;
         }
     }
+
+    /// <summary>
+    /// מבנה אשר מייצג נקודה
+    /// </summary>
     struct Point
     {
         public int x;
         public int y;
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
+        /// <param name="x">מיקום בציר האופקי</param>
+        /// <param name="y">מיקום בציר האנכי</param>
         public Point(int x, int y)
         {
             this.x = x;

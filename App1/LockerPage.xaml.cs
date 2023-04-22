@@ -28,12 +28,18 @@ namespace SpaceInvaders
     /// </summary>
     public sealed partial class LockerPage : Page
     {
-      
+      /// <summary>
+      /// פעולה בונה
+      /// </summary>
         public LockerPage()
         {
             this.InitializeComponent();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר העמוד נטען
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             List<Product> skins= SqlHelper.GetPerchases(Session.User.Id);
@@ -46,7 +52,11 @@ namespace SpaceInvaders
             }
             
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             if (mylist.SelectedItem != null)

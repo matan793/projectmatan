@@ -29,14 +29,20 @@ namespace SpaceInvaders
         private Manager myManager;
         private int points;
        
-
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public GamePage()
         {
             this.InitializeComponent();
 
             this.points = 0;
         }
-
+        /// <summary>
+        /// פעולה אשר מוסיפה נקודות לטקטס של הנקודות
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPoints(object sender, EventArgs e)
         {
             int points = (int)sender;
@@ -57,7 +63,11 @@ namespace SpaceInvaders
             this.points = points;
         }
 
-
+        /// <summary>
+        /// פונקציית נקראת כאשר דף נטען והפונקציה אחראית על שיוך פונקציות לאירועים של מנהל המשחק
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
            
@@ -72,7 +82,11 @@ namespace SpaceInvaders
 
             NumOfShieldTxt.Text = Session.User.ShieldNum.ToString();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על המקלדת ובודקת אם הוא לחץ על הכפתור f
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void DefendKeyDown(CoreWindow sender, KeyEventArgs args)
         {
             if(args.VirtualKey == Windows.System.VirtualKey.F)
@@ -81,12 +95,20 @@ namespace SpaceInvaders
                     NumOfShieldTxt.Text = Session.User.ShieldNum.ToString();
             }
         }
-
+        /// <summary>
+        /// פעולה אשר מעדכנת את הטקסט של זמן החסינות
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyManager_updateDefendTime(object sender, EventArgs e)
         {
             defendtimetext.Text = "shield time: " + this.myManager.DefendTime.ToString();
         }
-
+        /// <summary>
+        /// פעולה אשר מעדכנת את התטקסט של מספר החייים
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveLife(object sender, EventArgs e)
         {
             int lives = (int)sender;
@@ -112,26 +134,41 @@ namespace SpaceInvaders
             }
            
         }
-
+        /// <summary>
+        /// פונקצייה אשרר נקראת כאשר המשתמש עוצב את מקשי המקלדת
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
             this.myManager.StopCharacter();
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על המקלדת
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
-
-           
           
                 this.myManager.MoveCharacter(args.VirtualKey);
           
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על הכפתור חזרה לבית
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על הכפתור נסה שוב
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));

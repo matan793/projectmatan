@@ -65,7 +65,7 @@
 
         <Canvas  Grid.Row="0" Grid.Column="0" x:Name="canvas">
             
-            <Grid x:Name="gameovergrid" Canvas.ZIndex="10" Width="600" Height="600" CornerRadius="100" Visibility="Visible"  Background="#C1FFFF00" Canvas.Left="378" Canvas.Top="141">
+            <Grid x:Name="gameovergrid" Canvas.ZIndex="10" Width="600" Height="600" CornerRadius="100" Visibility="Collapsed"  Background="#C1FFFF00" Canvas.Left="378" Canvas.Top="141">
                 <Grid.RowDefinitions>
                     
                     <RowDefinition></RowDefinition>

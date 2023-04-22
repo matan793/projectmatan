@@ -25,20 +25,36 @@ namespace SpaceInvaders
     public sealed partial class ResetPasswordPage : Page
     {
         private string email = "";
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public ResetPasswordPage()
         {
             this.InitializeComponent();
         }
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המעוד נטען אחרי שעברו אליו
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             email = (string)e.Parameter;
         }
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Quitbtn_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
 
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור האיתחול סיסמא
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resetbtn_Click(object sender, RoutedEventArgs e)
         {
             string exp = "";
@@ -59,7 +75,11 @@ namespace SpaceInvaders
                 Frame.Navigate(typeof(Login));
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הסיסמא משתנה וגם תיבת האישור סיסמא
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newpass_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if(newpass.Password != "" && confirmpass.Password != "")
@@ -67,6 +87,11 @@ namespace SpaceInvaders
             else 
                 resetbtn.IsEnabled = false;
         }
+        /// <summary>
+        /// פעולה אשר בודקת את עמידות הסיסמא
+        /// </summary>
+        /// <param name="exception">מחרוזת המוחזרת שמכילה את הטעות</param>
+        /// <returns>מחזיר אמת אם הסיסמא תקינה ושקר אם לא</returns>
         public bool CheackPassword(out string exception)
         {
             exception = "";

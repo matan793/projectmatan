@@ -125,7 +125,7 @@
                 BorderBrush="Yellow"
                 Foreground="Yellow"
                 FontSize="40" 
-                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="playBtn_Click" />
+                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="LoginBtn_Click" />
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="36" Grid.ColumnSpan="3" Grid.RowSpan="3">
         <Button x:Name="Quitbtn" 

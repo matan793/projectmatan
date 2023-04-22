@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace SpaceInvaders
 {
+    /// <summary>
+    /// מחלקה המייצגת אוייב בסיסי 
+    /// </summary>
     internal class Enemy : MovingItem
     {
         public new event EventHandler Touch;
@@ -19,6 +22,14 @@ namespace SpaceInvaders
         public List<Bullet> Bullets { get { return bullets; } }
         protected int lives;
         public int Lives { get { return lives; } set { this.lives = value; MatchGifToState(); } }
+        /// <summary>
+        /// פעולה בונה של המחלקה
+        /// </summary>
+        /// <param name="placeX">המיקום האופקי</param>
+        /// <param name="placeY">המיקום האנכי</param>
+        /// <param name="speed">המירות</param>
+        /// <param name="arena">זירת המשחק</param>
+        /// <param name="size">גודל</param>
         public Enemy(double placeX, double placeY, int speed,Canvas arena, int size) : base(placeX, placeY, arena, size)
         {
             this.image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Enemy.gif"));
@@ -27,6 +38,11 @@ namespace SpaceInvaders
             this.bullets = new List<Bullet>();
             
         }
+        /// <summary>
+        /// פעולה שנקראת כל אלפית שנייה. הפעולה מבצעת את הפעולה הקדומה שלה ובנוסף מזמנת את האירוע של נגיע
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void MoveTimer_Tick(object sender, object e)
         {
             if (!destroyed)
@@ -36,10 +52,16 @@ namespace SpaceInvaders
                     this.Touch(this, null);
             }
         }
+        /// <summary>
+        /// פעולה אשר מתאימה את התמונה של האוייב למצב הנוככי שלו
+        /// </summary>
         protected virtual void MatchGifToState()
         {
             return;
         }
+        /// <summary>
+        /// פעולה אשר גורמת לאוייב לירות ירייה
+        /// </summary>
         public virtual void Shoot()
         {
             if (!destroyed)

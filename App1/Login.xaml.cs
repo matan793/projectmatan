@@ -37,7 +37,12 @@ namespace SpaceInvaders
             this.InitializeComponent();
         }
 
-        private void playBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור הכניבה למשתמש
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             User user = SqlHelper.GetUser(username.Text, password.Password);
             if(user == null)
@@ -47,7 +52,11 @@ namespace SpaceInvaders
             Session.User = user;
             Frame.Navigate(typeof(MainPage));
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הטקסט של השם משתמש משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(username.Text != "")
@@ -61,27 +70,50 @@ namespace SpaceInvaders
         }
 
       
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Quitbtn_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על תיבת הטקסט של הרשמה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(Register));
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0);
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הסיסמא משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void password_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (password.Password != "")
@@ -93,24 +125,43 @@ namespace SpaceInvaders
             else
                 loginbtn.IsEnabled = false;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר הדף טען
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על תיבת הטקבט של שכחתי סיסמא
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ForgotPass_Tapped(object sender, TappedRoutedEventArgs e)
         {
            emailgrid.Visibility = Visibility.Visible;
            fpassbtn.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backbtn_Click(object sender, RoutedEventArgs e)
         {
             emailgrid.Visibility = Visibility.Collapsed;
             fpassbtn.Visibility = Visibility.Visible;
         }
 
+
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על הלחצן המשך
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void continuebtn_Click(object sender, RoutedEventArgs e)
         {
             if (SqlHelper.IsExists(SqlHelper.UserRowType.Mail, emailbox.Text))
@@ -125,7 +176,11 @@ namespace SpaceInvaders
                 emailerr.Text = "there is no user registered on this email plz try again";
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הטקסט של האישור קוד משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void verifybox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(verifybox.Text == varcode)
@@ -133,7 +188,11 @@ namespace SpaceInvaders
                 Frame.Navigate(typeof(ResetPasswordPage), emailbox.Text);
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה השני הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backbtn2_Click(object sender, RoutedEventArgs e)
         {
             verifygrid.Visibility = Visibility.Collapsed;

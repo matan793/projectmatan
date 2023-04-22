@@ -17,6 +17,9 @@ using Windows.System;
 
 namespace SpaceInvaders
 {
+    /// <summary>
+    /// מחלקה אשר מנהלת את המשחק
+    /// </summary>
     internal class Manager
     {
         private Spaceship spaceship;
@@ -33,6 +36,10 @@ namespace SpaceInvaders
         private int speed;
         
         public int DefendTime { get; private set; }
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
+        /// <param name="Arena">זירת המשחק</param>
         public Manager(Canvas Arena)
         {
             this.level = 1;
@@ -58,7 +65,11 @@ namespace SpaceInvaders
             this.lives = 3;
             this.points = 0;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל אלפית שנייה ואחראית על מעבר שלב, זמן יריית הכדור ועוד
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Game_Tick(object sender, object e)
         {
             if(cooldown < uint.MaxValue)
@@ -79,7 +90,11 @@ namespace SpaceInvaders
                 }
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת על אלפית שנייה ובודרת אם האוייב פגע בשחקן, ירייה של האוייב פגעה בשחקן ואם ירייה של השחקן פעעה באוייב
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Enemy_Touch(object sender, EventArgs e)
         {
             Enemy enemy = (Enemy)sender;
@@ -147,6 +162,10 @@ namespace SpaceInvaders
                 }
             }
         }
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שהמשתמש לחץ על המקלדת שלו
+        /// </summary>
+        /// <param name="virtualKey"></param>
         internal  void MoveCharacter(VirtualKey virtualKey)
         {
            
@@ -181,6 +200,10 @@ namespace SpaceInvaders
           
             
         }
+        /// <summary>
+        /// פעולה אשר מוסיפה 10 לזמן החסינות
+        /// </summary>
+        /// <returns></returns>
         public bool defend()
         {
             if(Session.User.ShieldNum > 0)
@@ -192,6 +215,9 @@ namespace SpaceInvaders
             }
             return false;
         }
+        /// <summary>
+        /// פעולה אשר עוצרת את המשחק
+        /// </summary>
         public void StopGame()
         {
             StopCharacter();
@@ -202,6 +228,9 @@ namespace SpaceInvaders
 
             SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
         }
+        /// <summary>
+        /// פעולה אשר עוצרת את השחקן
+        /// </summary>
         internal void StopCharacter()
 
         {

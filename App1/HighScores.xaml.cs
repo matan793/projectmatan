@@ -27,6 +27,9 @@ namespace SpaceInvaders
     {
         public List<User> Users;
 
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public HighScores()
         {
             this.InitializeComponent();
@@ -35,20 +38,30 @@ namespace SpaceInvaders
             Leaderboard.ItemsSource = Users;
         }
 
+        /// <summary>
+        /// פעולה אשר נקראת כאשר השחקן לוחץ על הכפתור חזרה הביתה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void scoresBackBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
 
+        /// <summary>
+        /// פעולה אשר נקרא כאשר השחקן לוחץ על הכפתור משחק חדש
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage));
         }
 
-        private void Order(object sender, SelectionChangedEventArgs e)
-        {
-            Leaderboard.Items.Clear();
-        }
+        //private void Order(object sender, SelectionChangedEventArgs e)
+        //{
+        //    Leaderboard.Items.Clear();
+        //}
 
        
     }

@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
-    internal class Session
+    /// <summary>
+    /// מחלקה סטטית אשר מחילה אובייקט יוזר בכדי לגשת איליו בשאאר המחלקות
+    /// </summary>
+    internal static class Session
     {
         public static User User { get;  set; }
 
+        /// <summary>
+        /// פעולה אשר מאתחלת את המשתמש
+        /// </summary>
         public static void Reset() 
         {
             Session.User = null;

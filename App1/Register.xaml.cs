@@ -30,6 +30,11 @@ namespace SpaceInvaders
         private bool us = false, ps = false, em = false, cps = false;
         private string varcode = "";
 
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הטקסט של השם משתמש משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (username.Text != "")
@@ -42,7 +47,11 @@ namespace SpaceInvaders
                 Regbtn.IsEnabled = false;
         }
 
-      
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הטקסט של המייל משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (email.Text != "")
@@ -55,23 +64,41 @@ namespace SpaceInvaders
                 Regbtn.IsEnabled = false;
         }
 
-     
 
+
+
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Quitbtn_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Exit();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0);
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת הסיסמא משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void password_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (password.Password != "")
@@ -83,7 +110,11 @@ namespace SpaceInvaders
             else
                 Regbtn.IsEnabled = false;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כל פעם שתיבת האישור סיסמא משתנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cpassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (cpassword.Password != "")
@@ -100,11 +131,20 @@ namespace SpaceInvaders
         {
             this.InitializeComponent();
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על תיבת הטקסט של החזרה לכניסה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(Login));
         }
+        /// <summary>
+        /// פעולה אשר בודקת את עמידות הסיסמא
+        /// </summary>
+        /// <param name="exception">מחרוזת המוחזרת שמכילה את הטעות</param>
+        /// <returns>מחזיר אמת אם הסיסמא תקינה ושקר אם לא</returns>
         public bool CheackPassword(out string exception)
         {
             exception = "";
@@ -135,7 +175,11 @@ namespace SpaceInvaders
             }
             return true;
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על תיבת הטקסט של האישור קוד
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void varcodetxt_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(varcodetxt.Text == varcode)
@@ -146,7 +190,11 @@ namespace SpaceInvaders
                 Frame.Navigate(typeof(Login));
             }
         }
-
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור החזרה אחורה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backbtn_Click(object sender, RoutedEventArgs e)
         {
             verifygrid.Visibility = Visibility.Collapsed;
@@ -154,7 +202,9 @@ namespace SpaceInvaders
         }
 
 
-
+        /// <summary>
+        /// פעולה אשר מנטרלת את כל האיברים התחתונים
+        /// </summary>
         private void DisableAll()
         {
             password.IsEnabled= false;
@@ -165,6 +215,9 @@ namespace SpaceInvaders
             Regbtn.IsEnabled= false;
             Regbtn.Visibility= Visibility.Collapsed;
         }
+        /// <summary>
+        /// פעולה אשר מפעילה את כל האיברים התחתונים
+        /// </summary>
         private void EnableAll()
         {
             password.IsEnabled = true;
@@ -176,6 +229,11 @@ namespace SpaceInvaders
             Regbtn.Visibility = Visibility.Visible;
 
         }
+        /// <summary>
+        /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור ההרשמה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegBtn_Click(object sender, RoutedEventArgs e)
         {
             string exp = "";
