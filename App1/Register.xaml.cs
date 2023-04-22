@@ -153,6 +153,8 @@ namespace SpaceInvaders
             EnableAll();
         }
 
+
+
         private void DisableAll()
         {
             password.IsEnabled= false;

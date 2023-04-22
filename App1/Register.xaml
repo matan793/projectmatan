@@ -9,104 +9,124 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
             <ImageBrush ImageSource="Assets/spacedust1.jpg"></ImageBrush>
         </Grid.Background>
         <Viewbox Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="5">
-        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="username:"  FontSize="40"/>
+            <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="username:"  FontSize="40"/>
         </Viewbox>
         <Viewbox Grid.Row="13" Grid.Column="12" Grid.ColumnSpan="7" Grid.RowSpan="3">
-        <TextBox Width="251" Name="username" FontSize="40" Background="#66ADA0A0"  TextChanged="username_TextChanged"/>
+            <TextBox Width="251" Name="username" FontSize="40" Background="#66ADA0A0"  TextChanged="username_TextChanged"/>
         </Viewbox>
-        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="password:" FontSize="40" Margin="91,518,-91,0" Grid.ColumnSpan="2"/>
-        <PasswordBox Width="455" Height="66" Name="password" FontSize="40" Background="#66ADA0A0" Margin="394,507,1071,507" PasswordChanged="password_PasswordChanged" Grid.ColumnSpan="2"/>
-        <Grid Grid.ColumnSpan="2" x:Name="verifygrid"  CornerRadius="100" Visibility="Collapsed" Width="790" Height="608" Background="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="39" Text="a verification code was sent to your email" HorizontalAlignment="Center" FontFamily="Space Invaders" />
-            <TextBlock FontSize="39" Text="please verify:" VerticalAlignment="Center" Margin="10,0,-10,0" FontFamily="Space Invaders"/>
-            <TextBox Width="300" Height="70" MaxLength="8" FontSize="39" FontFamily="Space Invaders" Name="varcodetxt" TextChanged="varcodetxt_TextChanged" />
+        <Viewbox Grid.Row="20" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="5">
+            <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="password:" FontSize="40" />
+        </Viewbox>
+        <Viewbox Grid.Row="21" Grid.Column="12" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <PasswordBox Name="password" Width="251" FontSize="40" Background="#66ADA0A0" PasswordChanged="password_PasswordChanged" />
+        </Viewbox>
+        <Grid  Grid.Column="7" Grid.Row="5" Grid.ColumnSpan="25" Grid.RowSpan="25" x:Name="verifygrid"  Visibility="Collapsed"  Background="Yellow">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="95*"></ColumnDefinition>
+                <ColumnDefinition Width="63*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" VerticalAlignment="Top">
+                <TextBlock  FontSize="39" Text="a verification code was sent to your email" HorizontalAlignment="Left" FontFamily="Space Invaders" />
+            </Viewbox>
+            <Viewbox Grid.Row="1">
+                <TextBlock  FontSize="35" Text="enter the verification coede:" VerticalAlignment="Center" FontFamily="Space Invaders" Height="47"/>
+            </Viewbox>
+            <Viewbox  Grid.Column="1" Grid.Row="1" >
+                <TextBox HorizontalAlignment="Center" Width="251" MaxLength="8" FontSize="39" FontFamily="Space Invaders" Name="varcodetxt"  TextChanged="varcodetxt_TextChanged" />
+            </Viewbox>
             <Button x:Name="backbtn"
+                Grid.Row="2"
                 PointerEntered="TextBlock_PointerEntered"
                 PointerExited="TextBlock_PointerExited"
                 VerticalContentAlignment="Center"
@@ -116,14 +136,16 @@
                 Foreground="Yellow"
                 Click="backbtn_Click"
                 FontSize="40" 
-                VerticalAlignment="Top"
-                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261"  HorizontalAlignment="Center" Margin="0,522,0,0" Background="#7F000000"/>
-        </Grid>
+                VerticalAlignment="Bottom"
+                
+                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders"  Background="#7F000000"/>
 
-        <Button x:Name="Regbtn"
+        </Grid>
+        <Viewbox Grid.Row="30" Grid.Column="15" Grid.ColumnSpan="10" Grid.RowSpan="10">
+            <Button x:Name="Regbtn"
                 PointerEntered="TextBlock_PointerEntered"
                 PointerExited="TextBlock_PointerExited"
-                IsEnabled="False"
+                IsEnabled="True"
                 VerticalContentAlignment="Bottom"
                 HorizontalContentAlignment="Center"
                 Content="register" 
@@ -131,23 +153,33 @@
                 Foreground="Yellow"
                 FontSize="40" 
                 VerticalAlignment="Top"
-                Margin="46,743,0,0" RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261"  Grid.Column="1" Click="RegBtn_Click"/>
-        <Button x:Name="Quitbtn" 
+                RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="RegBtn_Click"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="37" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button x:Name="Quitbtn" 
                 Content="quit" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Top"
-                Margin="0,10,10,0"
-                Grid.Row="0"
                 BorderBrush="Yellow"
                 Foreground="Yellow"
-                FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="Quitbtn_Click" Grid.Column="1" 
+                FontFamily="Fonts/space_invaders.ttf#Space Invaders" Click="Quitbtn_Click"
                 />
-        <TextBlock PointerExited="TextBlock_PointerExited" PointerEntered="TextBlock_PointerEntered" Tapped="TextBlock_Tapped" Foreground="Yellow" FontSize="40" Text="already have a user? click here to login" Margin="609,637,550,372" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="regerr"  Foreground="Red" Visibility="Collapsed"  FontSize="40" Text="User already exists. try again" Margin="612,584,585,438" Grid.ColumnSpan="2"/>
-
-        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="Email:"  FontSize="40" Margin="131,418,-915,0" Grid.Column="1"/>
-        <TextBox  Width="455" Height="66" x:Name="email" FontSize="40" Background="#66ADA0A0" Margin="494,418,187,596" Grid.Column="1" TextChanged="email_TextChanged"/>
-        <TextBlock Foreground="Yellow" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" FontSize="29" Margin="131,518,-915,0" Grid.Column="1" Text="Confirm password"></TextBlock>
-        <PasswordBox    Width="455" Height="66" x:Name="cpassword" FontSize="40" Background="#66ADA0A0" Margin="494,507,187,507" Grid.Column="1" PasswordChanged="cpassword_PasswordChanged"/>
+        </Viewbox>
+        <Viewbox Grid.Row="24" Grid.Column="15" Grid.ColumnSpan="10" Grid.RowSpan="3">
+            <TextBlock PointerExited="TextBlock_PointerExited" PointerEntered="TextBlock_PointerEntered" Tapped="TextBlock_Tapped" Foreground="Yellow" FontSize="40" Text="already have a user? click here to login"/>
+        </Viewbox>
+        <Viewbox Grid.Row="24" Grid.Column="15" Grid.ColumnSpan="10">
+            <TextBlock x:Name="regerr"  Foreground="Red" Visibility="Collapsed"  FontSize="40" Text="User already exists. try again"/>
+        </Viewbox>
+        <Viewbox  Grid.Row="13" Grid.Column="20" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <TextBlock Foreground="Yellow" Width="180" VerticalAlignment="Top" FontFamily="Fonts/space_invaders.ttf#space invaders" Text="Email:"  FontSize="40" />
+        </Viewbox>
+        <Viewbox  Grid.Row="13" Grid.Column="26" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <TextBox Width="251" x:Name="email" FontSize="40" Background="#66ADA0A0" Grid.Column="1" TextChanged="email_TextChanged"/>
+        </Viewbox>
+        <Viewbox  Grid.Row="21" Grid.Column="20" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <TextBlock  Foreground="Yellow"  FontFamily="Fonts/space_invaders.ttf#space invaders" FontSize="80" Text="Confirm password" TextAlignment="Center"/>
+        </Viewbox>
+        <Viewbox Grid.Row="21" Grid.Column="28" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <PasswordBox Width="251" x:Name="cpassword" FontSize="40" Background="#66ADA0A0" PasswordChanged="cpassword_PasswordChanged"/>
+        </Viewbox>
     </Grid>
 </Page>

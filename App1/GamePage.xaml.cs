@@ -68,8 +68,7 @@ namespace SpaceInvaders
             this.myManager.addpoints += AddPoints;
             this.myManager.removelifie += RemoveLife;
             this.myManager.updateDefendTime += MyManager_updateDefendTime;
-            Canvas.SetTop(gameovergrid, canvas.Height/3);
-            Canvas.SetLeft(gameovergrid, canvas.Width/3);
+            
 
             NumOfShieldTxt.Text = Session.User.ShieldNum.ToString();
         }
