@@ -185,7 +185,7 @@ namespace SpaceInvaders
         {
             if(verifybox.Text == varcode)
             {
-                Frame.Navigate(typeof(ResetPasswordPage), emailbox.Text);
+               Frame.Navigate(typeof(ResetPasswordPage), emailbox.Text);
             }
         }
         /// <summary>
