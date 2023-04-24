@@ -205,6 +205,9 @@
                 RequestedTheme="Light" FontFamily="Fonts/space_invaders.ttf#Space Invaders" Height="76" Width="261" Click="buyBtn_Click" 
                />
         </Viewbox>
+        <Viewbox Grid.Row="3">
+            <TextBlock x:Name="score" Text="your score is: " Foreground="Yellow" FontFamily="Fonts/space_invaders.ttf#Space Invaders"/>
+        </Viewbox>
         <Viewbox Grid.Row="4" Grid.ColumnSpan="2">
             <Button  x:Name="buyshieldBtn" 
                 Visibility="Collapsed"

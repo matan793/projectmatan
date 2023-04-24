@@ -46,7 +46,6 @@ namespace SpaceInvaders
             else
                 Regbtn.IsEnabled = false;
         }
-
         /// <summary>
         /// פעולה אשר נקראת כל פעם שתיבת הטקסט של המייל משתנה
         /// </summary>
@@ -63,10 +62,6 @@ namespace SpaceInvaders
             else
                 Regbtn.IsEnabled = false;
         }
-
-
-
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
         /// </summary>
@@ -126,7 +121,6 @@ namespace SpaceInvaders
             else
                 Regbtn.IsEnabled = false;
         }
-
         public Register()
         {
             this.InitializeComponent();
@@ -200,8 +194,6 @@ namespace SpaceInvaders
             verifygrid.Visibility = Visibility.Collapsed;
             EnableAll();
         }
-
-
         /// <summary>
         /// פעולה אשר מנטרלת את כל האיברים התחתונים
         /// </summary>
@@ -244,7 +236,7 @@ namespace SpaceInvaders
             }
             else if (!EmailManager.IsCurrect(email.Text))
             {
-                regerr.Text = "Mail is in curect pleas try again.";
+                regerr.Text = "Mail is not curect please try again.";
                 regerr.Visibility = Visibility.Visible;
             }
             else if (!CheackPassword(out exp))

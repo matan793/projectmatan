@@ -31,12 +31,13 @@ namespace SpaceInvaders
         bool us = false;
         bool ps = false;
         private string varcode;
-
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public Login()
         {
             this.InitializeComponent();
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור הכניבה למשתמש
         /// </summary>
@@ -67,9 +68,7 @@ namespace SpaceInvaders
                 loginbtn.IsEnabled = true;
             else
                 loginbtn.IsEnabled = false;
-        }
-
-      
+        }    
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
         /// </summary>
@@ -79,7 +78,6 @@ namespace SpaceInvaders
         {
             Application.Current.Exit();
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על תיבת הטקסט של הרשמה
         /// </summary>
@@ -98,7 +96,6 @@ namespace SpaceInvaders
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0);
         }
-
         /// <summary>
         /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
         /// </summary>
@@ -144,7 +141,6 @@ namespace SpaceInvaders
            emailgrid.Visibility = Visibility.Visible;
            fpassbtn.Visibility = Visibility.Collapsed;
         }
-
         /// <summary>
         /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
         /// </summary>
@@ -155,8 +151,6 @@ namespace SpaceInvaders
             emailgrid.Visibility = Visibility.Collapsed;
             fpassbtn.Visibility = Visibility.Visible;
         }
-
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על הלחצן המשך
         /// </summary>

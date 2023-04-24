@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,8 +28,7 @@ namespace SpaceInvaders
     public sealed partial class GamePage : Page
     {
         private Manager myManager;
-        private int points;
-       
+        private int points;   
         /// <summary>
         /// פעולה בונה
         /// </summary>
@@ -62,7 +62,6 @@ namespace SpaceInvaders
             }
             this.points = points;
         }
-
         /// <summary>
         /// פונקציית נקראת כאשר דף נטען והפונקציה אחראית על שיוך פונקציות לאירועים של מנהל המשחק
         /// </summary>
@@ -131,6 +130,12 @@ namespace SpaceInvaders
                 gameovergrid.Visibility = Visibility.Visible;
                 overscore.Text = "Your score is: " + this.points;
                 myManager.StopGame();
+                Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+                Window.Current.CoreWindow.KeyDown -= DefendKeyDown;
+                Window.Current.CoreWindow.KeyUp -= CoreWindow_KeyUp;
+                this.myManager.addpoints -= AddPoints;
+                this.myManager.removelifie -= RemoveLife;
+                this.myManager.updateDefendTime -= MyManager_updateDefendTime;
             }
            
         }

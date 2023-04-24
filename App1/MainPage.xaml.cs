@@ -31,7 +31,6 @@ namespace SpaceInvaders
             this.InitializeComponent();
             ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על הכפתור משחק חדש
         /// </summary>
@@ -42,7 +41,6 @@ namespace SpaceInvaders
             Frame.Navigate(typeof(GamePage));
             
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה
         /// </summary>
@@ -52,7 +50,6 @@ namespace SpaceInvaders
         {
             Application.Current.Exit();
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור השיאים
         /// </summary>
@@ -62,7 +59,6 @@ namespace SpaceInvaders
         {
             Frame.Navigate (typeof(HighScores));
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור המידע
         /// </summary>
@@ -72,7 +68,6 @@ namespace SpaceInvaders
         {
             Frame.Navigate(typeof(InformationPage));
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כפתור היציאה מהמשתמש
         /// </summary>
@@ -92,9 +87,8 @@ namespace SpaceInvaders
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0);
         }
-
         /// <summary>
-        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת טקסט
+        /// פעולה אשר נקראת בכל פעם שהעכבר יוצא מתכום של תיבת הכפתור
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

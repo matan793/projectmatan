@@ -66,7 +66,6 @@ namespace SpaceInvaders
         /// </summary>
         /// <returns></returns>
         public virtual Rect GetRectangle() => new Rect((int)this.placeX + 2, (int)this.placeY, (int)this.Image.Height, (int)this.Image.Width);
-
         /// <summary>
         /// פעולה אשר נקראת כל אלפית שנייה ואחראית על לבדוק את גבולות האובייקט
         /// </summary>

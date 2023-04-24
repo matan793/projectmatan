@@ -34,8 +34,6 @@ namespace SpaceInvaders
             this.image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Spaceship1/{skin}.png"));
             this.bullets = new List<Bullet>();
         }
-
-
         /// <summary>
         /// פעולה אשר נקראת כל אלפית שנייה ואחראית על לבדוק את גבולות השחקן והכדורים
         /// </summary>

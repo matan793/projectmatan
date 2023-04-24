@@ -64,7 +64,6 @@ namespace SpaceInvaders
            
             this.count = enemies.Length;
         }
-
         /// <summary>
         /// פעולה מייצרת מערת של אוייבים ומקנה את כמות האוייבים של כל רמה לפי השלב
         /// </summary>
@@ -119,7 +118,6 @@ namespace SpaceInvaders
                 }
             }
         }
-
         /// <summary>
         /// פעולה אשר מוחקת את האובייקט של האוייב
         /// </summary>
@@ -146,7 +144,6 @@ namespace SpaceInvaders
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void MoveTimer_Tick(object sender, object e)
         {
             for (int i = 0; i < enemies.GetLength(0); i++)
@@ -182,19 +179,6 @@ namespace SpaceInvaders
             }
            // CalcCount();
         }
-        //private void CalcCount()
-        //{
-        //    for (int i = 0; i < enemies.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < enemies.GetLength(1); j++)
-        //        {
-        //            if (!enemies[i, j].Destroyed)
-        //                Count++;
-        //        }
-        //    }
-            
-        //}
-
         /// <summary>
         /// פעולה אשר אחראיתת על השמת המהירות לכל האוייבים
         /// </summary>
@@ -209,7 +193,6 @@ namespace SpaceInvaders
                 }
             }
         }
-
         /// <summary>
         /// פעולה אשר עוצרת את כל האוייבים
         /// </summary>

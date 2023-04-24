@@ -55,7 +55,10 @@ namespace SpaceInvaders
             powerUpimg.Height = 100;
             powerUpimg.Source = new BitmapImage(new Uri("ms-appx:///Assets/shield.png"));
             powerUpList.Items.Add(powerUpimg);
-            
+
+            score.Text += Session.User.Score.ToString();
+
+
         }
         /// <summary>
         /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
@@ -80,6 +83,7 @@ namespace SpaceInvaders
                 SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
                 mylist.Items.Remove(mylist.SelectedItem);
                 buyerr.Visibility = Visibility.Collapsed;
+                score.Text = "your socre is: " + Session.User.Score.ToString();
 
             }
             else if(mylist.SelectedItem == null)
@@ -145,7 +149,7 @@ namespace SpaceInvaders
                 SqlHelper.UpdateScore(Session.User.Id, Session.User.Score, Session.User.HighScore);
                 Session.User.ShieldNum++;
                 buyerr.Visibility = Visibility.Collapsed;
-
+                score.Text = "your socre is: " + Session.User.Score.ToString();
             }
             else if (powerUpList.SelectedItem == null)
             {

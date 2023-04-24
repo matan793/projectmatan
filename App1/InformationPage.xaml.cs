@@ -22,12 +22,13 @@ namespace SpaceInvaders
     /// </summary>
     public sealed partial class InformationPage : Page
     {
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public InformationPage()
         {
             this.InitializeComponent();
         }
-
-     
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על כתור האיך לשחק
         /// </summary>
@@ -44,7 +45,6 @@ namespace SpaceInvaders
             aboutBtn.RequestedTheme = ElementTheme.Light;
             howBtn.RequestedTheme = ElementTheme.Dark;
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר המשתמש לוחץ על הכפתור מידע עליי
         /// </summary>
@@ -60,7 +60,6 @@ namespace SpaceInvaders
             aboutBtn.RequestedTheme = ElementTheme.Dark;
             howBtn.RequestedTheme = ElementTheme.Light;
         }
-
         /// <summary>
         /// פעולה אשר נקראת עאשר המשתמש לוחץ על העפתור חזרה הביתה
         /// </summary>

@@ -51,7 +51,7 @@ namespace DataBase
                     SqliteCommand cmd = new SqliteCommand(query, connection);
                     SqliteDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
-                    {
+                    {   
                         User user = new User() { 
                             
                             Username= reader.GetString(0),

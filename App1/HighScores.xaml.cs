@@ -37,7 +37,6 @@ namespace SpaceInvaders
           
             Leaderboard.ItemsSource = Users;
         }
-
         /// <summary>
         /// פעולה אשר נקראת כאשר השחקן לוחץ על הכפתור חזרה הביתה
         /// </summary>
@@ -47,7 +46,6 @@ namespace SpaceInvaders
         {
             Frame.Navigate(typeof(MainPage));
         }
-
         /// <summary>
         /// פעולה אשר נקרא כאשר השחקן לוחץ על הכפתור משחק חדש
         /// </summary>
@@ -57,12 +55,6 @@ namespace SpaceInvaders
         {
             Frame.Navigate(typeof(GamePage));
         }
-
-        //private void Order(object sender, SelectionChangedEventArgs e)
-        //{
-        //    Leaderboard.Items.Clear();
-        //}
-
        
     }
 }
