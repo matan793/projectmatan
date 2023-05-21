@@ -89,7 +89,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="SpaceInvaders.Login" BaseTypeListCollapsed="true">
+  <Class Name="SpaceInvaders.Login" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAQAAAAgAAAAIAAAAEAARAAAAAgBAAEAAoIIEA=</HashCode>
@@ -120,7 +120,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="SpaceInvaders.ResetPasswordPage" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="SpaceInvaders.ResetPasswordPage" BaseTypeListCollapsed="true">
     <Position X="11" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAACAAgAAIAAAQAAAAAAAAAAAAAAAgAAAA=</HashCode>
@@ -135,8 +135,8 @@
       <FileName>Session.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SpaceInvaders.ShopPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="4.5" Width="1.5" />
+  <Class Name="SpaceInvaders.ShopPage" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAACAAAAAAAAAQgAIAAAAAAAAAAIAAA=</HashCode>
       <FileName>ShopPage.xaml.cs</FileName>

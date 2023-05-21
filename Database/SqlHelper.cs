@@ -156,7 +156,6 @@ namespace DataBase
             }
             return null; //המשתמש לא קיים
         }
-
         /// <summary>
         /// פעולה אשר בודקת אם המשתמש קיים במסד הנתונים לפי העמודה
         /// </summary>
@@ -209,8 +208,6 @@ namespace DataBase
             }
             return null; //המשתמש לא קיים
         }
-
-
         /// <summary>
         /// פעולה אשר מחזירה רשימה של אובייקטים מטיפוס מוצר אשר המשתמש לא רכש
         /// </summary>
@@ -242,7 +239,6 @@ namespace DataBase
             }
             return products;
         }
-
         /// <summary>
         /// פעולה אשר מחזירה רשימה של אובייקטים מטיפוס מוצר אשר המשתמש רכש
         /// </summary>
@@ -421,7 +417,8 @@ namespace DataBase
                 throw new Exception(query, e);
 
             }
-        }        /// <summary>
+        }       
+        /// <summary>
         /// אינם המייצג את עמודות הטבלה של המשתמשים
         /// </summary>
         public enum UserRowType

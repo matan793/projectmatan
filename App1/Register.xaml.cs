@@ -18,6 +18,7 @@ using Database;
 using Windows.Storage.Provider;
 using DataBase;
 using Windows.ApplicationModel.UserDataTasks;
+using System.Text.RegularExpressions;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace SpaceInvaders
@@ -234,7 +235,7 @@ namespace SpaceInvaders
                 regerr.Text = "the passwords don'nt match. try again";
                 regerr.Visibility = Visibility.Visible;
             }
-            else if (!EmailManager.IsCurrect(email.Text))
+            else if (!IsValidEmail(email.Text))
             {
                 regerr.Text = "Mail is not curect please try again.";
                 regerr.Visibility = Visibility.Visible;
@@ -256,12 +257,26 @@ namespace SpaceInvaders
             }
             else
             {
-                varcode = EmailManager.GetCode(8);
-                EmailManager.Send(email.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
-                verifygrid.Visibility = Visibility.Visible;
-                DisableAll();
+                User user = SqlHelper.AddUser(username.Text, password.Password, email.Text);
+                SqlHelper.AddProduct(user.Id, 0);
+
+                Frame.Navigate(typeof(Login));
             }
             
+        }
+        /// <summary>
+        /// פעולה אשר בודקת אם המייל תקין
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return false;
+
+            string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+
+            return Regex.IsMatch(email, pattern);
         }
     }
 }

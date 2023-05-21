@@ -112,7 +112,7 @@
             <PasswordBox  Name="password" FontSize="40" Background="#66ADA0A0"  PasswordChanged="password_PasswordChanged" Width="251"/>
         </Viewbox>
         <Viewbox Grid.Row="25" Grid.Column="13" Grid.ColumnSpan="15" Grid.RowSpan="2">
-        <TextBlock x:Name="fpassbtn"  PointerExited="TextBlock_PointerExited" PointerEntered="TextBlock_PointerEntered" Tapped="ForgotPass_Tapped" Foreground="Yellow" FontSize="40" Text="forgot your passwod? click here to change it"/>
+        <TextBlock x:Name="fpassbtn"  PointerExited="TextBlock_PointerExited" PointerEntered="TextBlock_PointerEntered" Tapped="ForgotPass_Tapped" Foreground="Yellow" FontSize="40" Text="forgot your passwod? click here to change it" />
         </Viewbox>
         <Viewbox Grid.Row="30" Grid.Column="16" Grid.RowSpan="5" Grid.ColumnSpan="7">
         <Button x:Name="loginbtn"

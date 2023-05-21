@@ -160,10 +160,11 @@ namespace SpaceInvaders
         {
             if (SqlHelper.IsExists(SqlHelper.UserRowType.Mail, emailbox.Text))
             {
-                varcode = EmailManager.GetCode(8);
-                EmailManager.Send(emailbox.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
-                emailgrid.Visibility = Visibility.Collapsed;
-                verifygrid.Visibility= Visibility.Visible;
+                //varcode = EmailManager.GetCode(8);
+                //EmailManager.Send(emailbox.Text, "varefication code", $"Hello {username.Text}, your varefication code is: {varcode}");
+                //emailgrid.Visibility = Visibility.Collapsed;
+                //verifygrid.Visibility= Visibility.Visible;
+                Frame.Navigate(typeof(ResetPasswordPage), emailbox.Text);
             }
             else
             {

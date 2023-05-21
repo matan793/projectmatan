@@ -14,9 +14,10 @@ namespace Database.Models
     /// </summary>
     public class Product
     {
-        public int Uid { get; set; }
-        private Skin skin;
-        public Skin Skin { get { return skin; } set 
+        public int Uid { get; set; }///מספר המזהה של המשתמש
+        private Skin skin;// מזהה הסקין הפרטי
+        public Skin Skin { get { return skin; } //מזהה הסקין הפומבי
+            set 
             {
                 skin = value;
                 Image = new Image();
@@ -25,9 +26,9 @@ namespace Database.Models
                 Image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Spaceship1/{value}.png"));
             } 
         }
-        public Image Image { get; set; }
-        public string Name { get; set; }
-        public int Price { get; set; }
+        public Image Image { get; set; }///תמונת הסקין
+        public string Name { get; set; }//שם הסקין
+        public int Price { get; set; }//מחיר הסקין
         
     }
 }
